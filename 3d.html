@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GOPSHILA ENTERPRISES -3D VIEW</title>
+<link rel="shortcut icon" href="https://i.ibb.co/ycWZxzNk/favicon-red-pkb-A41-E11.png" type="image/png">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    height:100vh;
+    background:#cac5c5;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    perspective:2000px;
+    overflow:hidden;
+    font-family:Arial, sans-serif;
+}
+
+/* Responsive Scene */
+.scene{
+    width:90vw;
+    max-width:1100px;
+    aspect-ratio: 16 / 9;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* Card */
+.card{
+    width:100%;
+    height:100%;
+    position:relative;
+    transform-style:preserve-3d;
+    transition:transform 0.1s ease;
+    cursor:grab;
+}
+
+/* Faces */
+.card-face{
+    position:absolute;
+    width:100%;
+    height:100%;
+    border-radius:20px;
+    overflow:hidden;
+    backface-visibility:hidden;
+    box-shadow:0 40px 80px rgba(0,0,0,0.15);
+}
+
+.card-face img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.card-back{
+    transform:rotateY(180deg);
+}
+
+/* Small screen shadow adjust */
+@media (max-width:600px){
+    .card-face{
+        border-radius:12px;
+        box-shadow:0 20px 40px rgba(0,0,0,0.15);
+    }
+}
+
+.title {
+      position: absolute;
+      top: 15px;
+      left: 20px;
+      padding: 12px 18px;
+       background:  linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+      color: rgb(255, 255, 255);
+      font-size: 40px;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: 0.3s;
+      z-index: 10;
+    }
+
+.back-btn {
+      position: fixed;
+      top: 15px;
+      right: 20px;
+      z-index: 10;
+      background:  linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+      color: #fff;
+      text-underline-offset: none;
+      border: none;
+      padding: 12px 18px;
+      font-size: 40px;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: 0.3s;
+}
+.back-btn:hover {
+      background: #e11d1d;
+    }
+/* Small screen shadow adjust */
+@media (max-width:600px){
+    .title{
+        font-size: 20px;
+    }
+    .back-btn{
+        font-size: 20px;
+    }
+}    
+</style>
+</head>
+
+<body>
+<div>
+     <div class="title">360° 3D View</div>
+     <div><button class="back-btn" onclick="goBack()">&#10006;</button></div>
+</div>
+<div class="scene">
+    <div class="card" id="card">
+        <div class="card-face">
+            <img src="front.png" alt="Front">
+        </div>
+        <div class="card-face card-back">
+            <img src="back.png" alt="Back">
+        </div>
+    </div>
+</div>
+
+<script>
+    // Back button link (change to your homepage link)
+  function goBack() {
+    window.location.href = "indexpk.html"; // main website page
+  }
+
+const card = document.getElementById("card");
+
+let isDragging = false;
+let currentX = 0;
+let currentY = 0;
+let startX = 0;
+let startY = 0;
+let autoRotate = true;
+
+/* Auto Rotate */
+function animate(){
+    if(autoRotate){
+        currentY += 0.2;
+        card.style.transform = `rotateX(${currentX}deg) rotateY(${currentY}deg)`;
+    }
+    requestAnimationFrame(animate);
+}
+animate();
+
+/* Mouse Events */
+card.addEventListener("mousedown", (e)=>{
+    isDragging = true;
+    autoRotate = false;
+    startX = e.clientX;
+    startY = e.clientY;
+    card.style.cursor="grabbing";
+});
+
+document.addEventListener("mouseup", ()=>{
+    isDragging = false;
+    autoRotate = true;
+    card.style.cursor="grab";
+});
+
+document.addEventListener("mousemove", (e)=>{
+    if(!isDragging) return;
+    let deltaX = e.clientX - startX;
+    let deltaY = e.clientY - startY;
+    currentY += deltaX * 0.5;
+    currentX -= deltaY * 0.5;
+    card.style.transform = `rotateX(${currentX}deg) rotateY(${currentY}deg)`;
+    startX = e.clientX;
+    startY = e.clientY;
+});
+
+/* Touch Events (Mobile) */
+card.addEventListener("touchstart", (e)=>{
+    isDragging = true;
+    autoRotate = false;
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+});
+
+card.addEventListener("touchend", ()=>{
+    isDragging = false;
+    autoRotate = true;
+});
+
+card.addEventListener("touchmove", (e)=>{
+    if(!isDragging) return;
+    let deltaX = e.touches[0].clientX - startX;
+    let deltaY = e.touches[0].clientY - startY;
+    currentY += deltaX * 0.5;
+    currentX -= deltaY * 0.5;
+    card.style.transform = `rotateX(${currentX}deg) rotateY(${currentY}deg)`;
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+});
+</script>
+
+</body>
+</html>
