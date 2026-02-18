@@ -1,1009 +1,2202 @@
 <!doctype html>
 <html lang="en" class="h-full">
- <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GOPSHILA ENTERPRISES</title>
-  <link rel="shortcut icon" href="https://i.ibb.co/ycWZxzNk/favicon-red-pkb-A41-E11.png" type="image/png">
-  <script src="/_sdk/element_sdk.js"></script>
-  <script src="/_sdk/data_sdk.js"></script>
-  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GOPSHILA ENTERPRISES</title>
+    <link
+      rel="shortcut icon"
+      href="https://i.ibb.co/ycWZxzNk/favicon-red-pkb-A41-E11.png"
+      type="image/png"
+    />
+    <script src="/_sdk/element_sdk.js"></script>
+    <script src="/_sdk/data_sdk.js"></script>
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Playfair+Display:wght@600;700;800&amp;display=swap" rel="stylesheet">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { height: 100%; scroll-behavior: smooth; scroll-padding-top: 80px; }
-    body { font-family: 'Inter', sans-serif; height: 100%; }
-    h1, h2, h3, h4, h5, h6 { font-family: 'Playfair Display', serif; }
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Playfair+Display:wght@600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        height: 100%;
+        scroll-behavior: smooth;
+        scroll-padding-top: 80px;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        height: 100%;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Playfair Display", serif;
+      }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
 
-    @keyframes slideInLeft {
-      from { opacity: 0; transform: translateX(-50px); }
-      to { opacity: 1; transform: translateX(0); }
-    }
+      @keyframes slideInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
 
-    @keyframes slideInRight {
-      from { opacity: 0; transform: translateX(50px); }
-      to { opacity: 1; transform: translateX(0); }
-    }
+      @keyframes slideInRight {
+        from {
+          opacity: 0;
+          transform: translateX(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
 
-    @keyframes scaleIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
-    }
+      @keyframes scaleIn {
+        from {
+          opacity: 0;
+          transform: scale(0.95);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
 
-    @keyframes cardFloat {
-      0%, 100% { transform: translateY(0px) rotateX(5deg) rotateY(-5deg); }
-      25% { transform: translateY(-15px) rotateX(8deg) rotateY(3deg); }
-      50% { transform: translateY(-10px) rotateX(-5deg) rotateY(8deg); }
-      75% { transform: translateY(-20px) rotateX(3deg) rotateY(-8deg); }
-    }
+      @keyframes cardFloat {
+        0%,
+        100% {
+          transform: translateY(0px) rotateX(5deg) rotateY(-5deg);
+        }
+        25% {
+          transform: translateY(-15px) rotateX(8deg) rotateY(3deg);
+        }
+        50% {
+          transform: translateY(-10px) rotateX(-5deg) rotateY(8deg);
+        }
+        75% {
+          transform: translateY(-20px) rotateX(3deg) rotateY(-8deg);
+        }
+      }
 
-    @keyframes slideInNotification {
-      from { opacity: 0; transform: translateX(400px); }
-      to { opacity: 1; transform: translateX(0); }
-    }
+      @keyframes slideInNotification {
+        from {
+          opacity: 0;
+          transform: translateX(400px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
 
-    @keyframes slideOutNotification {
-      from { opacity: 1; transform: translateX(0); }
-      to { opacity: 0; transform: translateX(400px); }
-    }
+      @keyframes slideOutNotification {
+        from {
+          opacity: 1;
+          transform: translateX(0);
+        }
+        to {
+          opacity: 0;
+          transform: translateX(400px);
+        }
+      }
 
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.5; }
-    }
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.5;
+        }
+      }
 
-    @keyframes gradient-shift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
+      @keyframes gradient-shift {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
 
-    .animate-fade { animation: fadeIn 0.8s ease-out; }
-    .animate-slide-left { animation: slideInLeft 0.8s ease-out; }
-    .animate-slide-right { animation: slideInRight 0.8s ease-out; }
-    .animate-scale { animation: scaleIn 0.6s ease-out; }
-    .animate-card-float { animation: cardFloat 6s ease-in-out infinite; }
-    .animate-notification-in { animation: slideInNotification 0.4s ease-out; }
-    .animate-notification-out { animation: slideOutNotification 0.4s ease-out forwards; }
-    .animate-pulse-badge { animation: pulse 2s infinite; }
+      .animate-fade {
+        animation: fadeIn 0.8s ease-out;
+      }
+      .animate-slide-left {
+        animation: slideInLeft 0.8s ease-out;
+      }
+      .animate-slide-right {
+        animation: slideInRight 0.8s ease-out;
+      }
+      .animate-scale {
+        animation: scaleIn 0.6s ease-out;
+      }
+      .animate-card-float {
+        animation: cardFloat 6s ease-in-out infinite;
+      }
+      .animate-notification-in {
+        animation: slideInNotification 0.4s ease-out;
+      }
+      .animate-notification-out {
+        animation: slideOutNotification 0.4s ease-out forwards;
+      }
+      .animate-pulse-badge {
+        animation: pulse 2s infinite;
+      }
 
-    .glass-effect {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    }
+      .glass-effect {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
 
-    .gradient-text {
-      background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
+      .gradient-text {
+        background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
 
-    .smooth-transition {
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
+      .smooth-transition {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
 
-    .card-hover {
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
+      .card-hover {
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
 
-    .card-hover:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-    }
+      .card-hover:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      }
 
-    .perspective-container {
-      perspective: 1000px;
-    }
+      .perspective-container {
+        perspective: 1000px;
+      }
 
-    .business-card-3d {
-      background: linear-gradient(135deg, #dc2626 0%, #991b1b 25%, #7c2d12 50%, #ea580c 75%, #dc2626 100%);
-      background-size: 300% 300%;
-      transform-style: preserve-3d;
-    }
+      .business-card-3d {
+        background: linear-gradient(
+          135deg,
+          #dc2626 0%,
+          #991b1b 25%,
+          #7c2d12 50%,
+          #ea580c 75%,
+          #dc2626 100%
+        );
+        background-size: 300% 300%;
+        transform-style: preserve-3d;
+      }
 
-    .card-shine {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
-      animation: shimmer 3s infinite;
-    }
+      .card-shine {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          45deg,
+          transparent 30%,
+          rgba(255, 255, 255, 0.1) 50%,
+          transparent 70%
+        );
+        animation: shimmer 3s infinite;
+      }
 
-    @keyframes shimmer {
-      0% { transform: translateX(-100%); }
-      100% { transform: translateX(100%); }
-    }
+      @keyframes shimmer {
+        0% {
+          transform: translateX(-100%);
+        }
+        100% {
+          transform: translateX(100%);
+        }
+      }
 
-    .logo-img {
-      height: 3rem;
-      width: auto;
-      object-fit: contain;
-      background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
-      padding: 0.25rem;
-      border-radius: 0.5rem;
-    }
+      .logo-img {
+        height: 3rem;
+        width: auto;
+        object-fit: contain;
+        background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+        padding: 0.25rem;
+        border-radius: 0.5rem;
+      }
 
-    #about {
-      background-image: url('https://i.ibb.co/XZ5YBBnc/pkb.png');
-      background-attachment: fixed;
-      background-size: 500px 500px;
-      background-repeat: no-repeat;
-      background-position: right -50px bottom -50px;
-      position: relative;
-    }
-
-    #about::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(255, 255, 255, 0.92);
-      z-index: 0;
-    }
-
-    #about > * {
-      position: relative;
-      z-index: 1;
-    }
-
-    @media (max-width: 640px) {
-      html { scroll-padding-top: 70px; }
-      .logo-img { height: 2.5rem; }
       #about {
-        background-size: 300px 300px;
-        background-position: right -30px bottom -30px;
+        background-image: url("https://i.ibb.co/XZ5YBBnc/pkb.png");
+        background-attachment: fixed;
+        background-size: 500px 500px;
+        background-repeat: no-repeat;
+        background-position: right -50px bottom -50px;
+        position: relative;
       }
-    }
-  </style>
-  <style>body { box-sizing: border-box; }</style>
- </head>
- <body class="h-full bg-white">
-  <div id="app" class="h-full w-full overflow-auto bg-gradient-to-b from-slate-50 to-red-50">
-    <!-- Welcome Popup -->
-   <div id="welcome-popup" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-    <div class="rounded-2xl shadow-2xl max-w-md w-full p-6 sm:p-8 animate-scale relative overflow-hidden" style="background: linear-gradient(-45deg, #dc2626 0%, #991b1b 25%, #7c2d12 50%, #ea580c 75%, #dc2626 100%); background-size: 400% 400%; animation: gradient-shift 8s ease infinite;">
-     <div class="card-shine"></div>
-     <div class="relative z-10">
-      <div class="text-center mb-6"><img src="https://i.ibb.co/XZ5YBBnc/pkb.png" alt="Logo" class="h-16 w-auto object-contain mx-auto mb-4 animate-bounce" style="animation-duration: 2s;" loading="lazy" onerror="console.error('Logo failed:', this.src);">
-       <h2 class="text-3xl font-bold text-white mb-2 animate-fade" style="animation-delay: 0.2s;">Welcome!</h2>
-       <p class="text-orange-100 text-lg animate-fade" style="animation-delay: 0.4s;">to Gopshila Enterprises</p>
-      </div>
-      <div class="space-y-3 mb-6">
-       <p class="text-orange-100 text-center leading-relaxed animate-fade" style="animation-delay: 0.6s;">Professional Excellence &amp; Innovation</p>
-       <div class="bg-white bg-opacity-20 p-4 rounded-lg border border-white border-opacity-30 backdrop-blur-sm animate-fade hover:bg-opacity-30 smooth-transition" style="animation-delay: 0.8s;">
-        <p class="text-sm text-white text-center"><span class="font-bold">✓</span> Transforming visions into reality</p>
-       </div>
-      </div>
-      <div class="flex gap-3"><button onclick="enableNotifications()" class="flex-1 bg-white text-red-600 py-3 rounded-lg font-semibold smooth-transition hover:shadow-lg hover:bg-red-50 flex items-center justify-center gap-2 animate-fade" style="animation-delay: 1s;">
-        <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 20 20">
-         <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5.951-1.488 5.951 1.488a1 1 0 001.169-1.409l-7-14z" />
-        </svg> Enable Alerts </button> <button onclick="closeWelcomePopup()" class="flex-1 border-2 border-white text-white py-3 rounded-lg font-semibold smooth-transition hover:bg-white hover:bg-opacity-10 animate-fade" style="animation-delay: 1s;">Skip</button>
-      </div>
-     </div>
-    </div>
-   </div>
-   <!-- Notification Container -->
-   <div id="notification-container" class="fixed top-24 right-4 z-40 space-y-3 max-w-sm pointer-events-none"></div>
-   <!-- Navigation Bar -->
-   <nav class="fixed top-0 left-0 right-0 z-50 glass-effect shadow-md border-b border-slate-200">
-    <div class="w-full px-4 sm:px-6 lg:px-8 py-0">
-     <div class="flex justify-between items-center h-20 sm:h-20"><!-- Logo and Brand --> <a href="#home" class="flex items-center gap-2 sm:gap-3 hover:opacity-80 smooth-transition"> <img src="https://i.ibb.co/XZ5YBBnc/pkb.png" alt="Gopshila Logo" class="logo-img" loading="lazy" onerror="console.error('Logo failed to load:', this.src); this.style.display='none';">
-       <div class="hidden sm:block">
-        <h1 id="nav-company-name" class="text-lg sm:text-xl font-bold gradient-text">GOPSHILA</h1>
-        <p class="text-xs text-slate-500">Enterprises</p>
-       </div></a> <!-- Desktop Navigation -->
-      <div class="hidden lg:flex items-center gap-3"><a href="#home" class="text-slate-700 hover:text-red-600 font-medium smooth-transition">Home</a> <a href="#about" class="text-slate-700 hover:text-red-600 font-medium smooth-transition">About</a> <a href="#services" class="text-slate-700 hover:text-red-600 font-medium smooth-transition">Services</a> <a href="#contact" class="text-slate-700 hover:text-red-600 font-medium smooth-transition">Contact</a> <!-- Notification Bell --> <button id="notification-bell" onclick="toggleNotifications()" class="relative p-2 text-slate-700 hover:text-red-600 hover:bg-red-50 rounded-lg smooth-transition" title="Toggle Notifications">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-        </svg><span id="notification-badge" class="absolute top-1 right-1 w-3 h-3 bg-red-600 rounded-full animate-pulse-badge"></span> </button> <button onclick="openGoogleMeetModal()" class="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-2 rounded-lg font-semibold smooth-transition hover:shadow-lg flex items-center gap-2">
-        <svg class="w-4 h-4" fill="currentColor" viewbox="0 0 24 24">
-         <circle cx="12" cy="12" r="10" />
-        </svg> Meet </button> <button onclick="openVisitingCardModal()" class="bg-gradient-to-r from-red-600 to-orange-600 text-white px-6 py-2 rounded-lg font-semibold smooth-transition hover:shadow-lg">Business Card</button> <button onclick="openRegistrationModal()" class="border-2 border-red-600 text-red-600 px-6 py-2 rounded-lg font-semibold smooth-transition hover:bg-red-50">Register</button>
-      </div><!-- Mobile Menu Button --> <button id="mobile-menu-btn" class="lg:hidden p-2 text-slate-700 hover:bg-slate-100 rounded-lg smooth-transition">
-       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-       </svg></button>
-     </div><!-- Mobile Menu -->
-     <div id="mobile-menu" class="hidden lg:hidden pb-4 border-t border-slate-200 bg-white"><a href="#home" class="block py-3 px-4 text-slate-700 hover:text-red-600 hover:bg-red-50 font-medium smooth-transition">Home</a> <a href="#about" class="block py-3 px-4 text-slate-700 hover:text-red-600 hover:bg-red-50 font-medium smooth-transition">About</a> <a href="#services" class="block py-3 px-4 text-slate-700 hover:text-red-600 hover:bg-red-50 font-medium smooth-transition">Services</a> <a href="#contact" class="block py-3 px-4 text-slate-700 hover:text-red-600 hover:bg-red-50 font-medium smooth-transition">Contact</a>
-      <div class="px-4 space-y-2 pt-2"><button onclick="toggleNotifications()" class="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-yellow-500 to-yellow-600 text-white px-4 py-3 rounded-lg font-semibold smooth-transition">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-        </svg><span id="mobile-notif-text">Enable Notifications</span> </button> <button onclick="openGoogleMeetModal()" class="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white px-4 py-3 rounded-lg font-semibold smooth-transition">Google Meet</button> <button onclick="openVisitingCardModal()" class="w-full bg-gradient-to-r from-red-600 to-orange-600 text-white px-4 py-3 rounded-lg font-semibold smooth-transition">Business Card</button> <button onclick="openRegistrationModal()" class="w-full border-2 border-red-600 text-red-600 px-4 py-3 rounded-lg font-semibold smooth-transition hover:bg-red-50">Register</button>
-      </div>
-     </div>
-    </div>
-   </nav><!-- Hero Section with Animated 3D Business Card -->
-   <section id="home" class="pt-24 sm:pt-32 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 via-red-50 to-orange-50">
-    <div class="max-w-6xl mx-auto">
-     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
-      <div class="animate-slide-left">
-       <h2 id="hero-title" class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-4 sm:mb-6 leading-tight">Transforming Visions Into Reality</h2>
-       <p id="hero-subtitle" class="text-base sm:text-lg md:text-xl text-slate-600 mb-6 sm:mb-8 leading-relaxed">Gopshila Enterprises delivers professional solutions tailored to your business needs with excellence and integrity.</p>
-       <div class="flex flex-col sm:flex-row gap-3 sm:gap-4"><button onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })" class="bg-gradient-to-r from-red-600 to-orange-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold smooth-transition hover:shadow-lg">Get Started</button> <button onclick="document.getElementById('about').scrollIntoView({ behavior: 'smooth' })" class="border-2 border-red-600 text-red-600 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold smooth-transition hover:bg-red-50">Learn More</button>
-       </div>
-      </div><!-- Animated 3D Business Card -->
-      <div class="animate-slide-right flex items-center justify-center w-full">
-       <div class="relative w-full max-w-sm h-72 sm:h-80 md:h-96 perspective-container">
-        <div class="absolute inset-0 animate-card-float" style="transform-style: preserve-3d;"><!-- Card Background with Gradient -->
-         <div class="w-full h-full rounded-2xl shadow-2xl overflow-hidden business-card-3d relative"><!-- Shine Effect -->
-          <div class="card-shine"></div><!-- Decorative Circles -->
-          <div class="absolute top-0 right-0 w-40 h-40 bg-orange-400 rounded-full opacity-20 blur-3xl -mr-20 -mt-20"></div>
-          <div class="absolute bottom-0 left-0 w-40 h-40 bg-red-900 rounded-full opacity-20 blur-3xl -ml-20 -mb-20"></div><!-- Card Content -->
-          <div class="relative h-full p-5 sm:p-8 flex flex-col justify-between z-10"><!-- Header with Logo -->
-           <div class="space-y-2">
-            <div class="flex items-center gap-2 sm:gap-3"><img src="https://i.ibb.co/XZ5YBBnc/pkb.png" alt="Logo" class="h-10 sm:h-12 w-auto object-contain" loading="lazy" onerror="console.error('Logo failed:', this.src);">
-             <div>
-              <h2 id="card-home-company" class="text-lg sm:text-xl font-bold text-white">GOPSHILA</h2>
-              <p class="text-xs text-orange-100 font-semibold">ENTERPRISES</p>
-             </div>
+
+      #about::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(255, 255, 255, 0.92);
+        z-index: 0;
+      }
+
+      #about > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      @media (max-width: 640px) {
+        html {
+          scroll-padding-top: 70px;
+        }
+        .logo-img {
+          height: 2.5rem;
+        }
+        #about {
+          background-size: 300px 300px;
+          background-position: right -30px bottom -30px;
+        }
+        
+
+      }
+    </style>
+    <style>
+      body {
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body class="h-full bg-white">
+    <div
+      id="app"
+      class="h-full w-full overflow-auto bg-gradient-to-b from-slate-50 to-red-50"
+    >
+      <!-- Welcome Popup -->
+      <div
+        id="welcome-popup"
+        class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4"
+      >
+        <div
+          class="rounded-2xl shadow-2xl max-w-md w-full p-6 sm:p-8 animate-scale relative overflow-hidden"
+          style="
+            background: linear-gradient(
+              -45deg,
+              #dc2626 0%,
+              #991b1b 25%,
+              #7c2d12 50%,
+              #ea580c 75%,
+              #dc2626 100%
+            );
+            background-size: 400% 400%;
+            animation: gradient-shift 8s ease infinite;
+          "
+        >
+          <div class="card-shine"></div>
+          <div class="relative z-10">
+            <div class="text-center mb-6">
+              <img
+                src="https://i.ibb.co/XZ5YBBnc/pkb.png"
+                alt="Logo"
+                class="h-16 w-auto object-contain mx-auto mb-4 animate-bounce"
+                style="animation-duration: 2s"
+                loading="lazy"
+                onerror="console.error('Logo failed:', this.src)"
+              />
+              <h2
+                class="text-3xl font-bold text-white mb-2 animate-fade"
+                style="animation-delay: 0.2s"
+              >
+                Welcome!
+              </h2>
+              <p
+                class="text-orange-100 text-lg animate-fade"
+                style="animation-delay: 0.4s"
+              >
+                to Gopshila Enterprises
+              </p>
             </div>
-            <p id="card-home-tagline" class="text-orange-100 text-xs sm:text-sm font-light pl-1">Professional Excellence</p>
-           </div><!-- Contact Info Section -->
-           <div class="space-y-2 border-t-2 border-b-2 border-orange-300 border-opacity-40 py-3">
-            <div class="flex items-center gap-2">
-             <svg class="w-4 h-4 sm:w-5 sm:h-5 text-orange-200 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20">
-              <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-             </svg>
-             <p id="card-home-email" class="text-xs text-white font-semibold truncate">PRIYANSHUKAMBLE2005@GMAIL.COM</p>
+            <div class="space-y-3 mb-6">
+              <p
+                class="text-orange-100 text-center leading-relaxed animate-fade"
+                style="animation-delay: 0.6s"
+              >
+                Professional Excellence &amp; Innovation
+              </p>
+              <div
+                class="bg-white bg-opacity-20 p-4 rounded-lg border border-white border-opacity-30 backdrop-blur-sm animate-fade hover:bg-opacity-30 smooth-transition"
+                style="animation-delay: 0.8s"
+              >
+                <p class="text-sm text-white text-center">
+                  <span class="font-bold">✓</span> Transforming visions into
+                  reality
+                </p>
+              </div>
             </div>
-            <div class="flex items-center gap-2">
-             <svg class="w-4 h-4 sm:w-5 sm:h-5 text-orange-200 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20">
-              <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773c.265.667.612 1.288 1.047 1.839l1.548.773a1 1 0 01.54 1.06l-.74 4.435a1 1 0 01-.986.836H3a1 1 0 01-1-1V3z" />
-             </svg>
-             <p id="card-home-phone" class="text-xs text-white font-semibold">+91 9130344312</p>
+            <div class="flex gap-3">
+              <button
+                onclick="enableNotifications()"
+                class="flex-1 bg-white text-red-600 py-3 rounded-lg font-semibold smooth-transition hover:shadow-lg hover:bg-red-50 flex items-center justify-center gap-2 animate-fade"
+                style="animation-delay: 1s"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 20 20">
+                  <path
+                    d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5.951-1.488 5.951 1.488a1 1 0 001.169-1.409l-7-14z"
+                  />
+                </svg>
+                Enable Alerts
+              </button>
+              <button
+                onclick="closeWelcomePopup()"
+                class="flex-1 border-2 border-white text-white py-3 rounded-lg font-semibold smooth-transition hover:bg-white hover:bg-opacity-10 animate-fade"
+                style="animation-delay: 1s"
+              >
+                Skip
+              </button>
             </div>
-           </div><!-- Footer Info -->
-           <div class="space-y-1">
-            <div>
-             <p class="text-orange-100 text-xs font-semibold">Owner</p>
-             <p id="card-home-owner" class="text-white font-bold text-xs sm:text-sm">Priyanshu Kamble</p>
-            </div>
-            <div>
-             <p class="text-orange-100 text-xs font-semibold">Location</p>
-             <p id="card-home-address" class="text-orange-100 text-xs leading-tight">Ramtek &amp; Kanhan, Nagpur-441404</p>
-            </div>
-           </div>
           </div>
-         </div>
-        </div><!-- Floating Background Accent -->
-        <div class="absolute -top-20 -right-20 w-48 h-48 bg-gradient-to-br from-orange-400 to-red-600 rounded-full opacity-15 blur-3xl animate-pulse"></div>
-        <div class="absolute -bottom-20 -left-20 w-48 h-48 bg-gradient-to-br from-red-600 to-orange-800 rounded-full opacity-15 blur-3xl animate-pulse" style="animation-delay: 1.5s;"></div>
-       </div>
-      </div>
-     </div>
-    </div>
-   </section>
-   <!-- About Section -->
-   <section id="about" class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-6xl mx-auto">
-     <div class="animate-fade">
-      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-8 text-center">About Gopshila Enterprises</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-12">
-       <div class="card-hover bg-gradient-to-br from-slate-50 to-slate-100 p-6 sm:p-8 rounded-xl border border-slate-200">
-        <div class="flex items-center gap-3 mb-4 bg-gradient-to-br from-red-500 to-red-700 w-11 h-14 rounded-lg"><img src="https://i.ibb.co/spBCWR4k/founded.png" alt="Logo" class="h-12 w-auto object-contain" loading="lazy" onerror="console.error('Logo failed:', this.src);">
-         <div class="text-4xl font-bold text-red-600">
-          Founded
-         </div>
         </div>
-        <h3 class="text-xl font-bold text-slate-900 mb-3">Est. 2025</h3>
-        <p class="text-slate-600">Building excellence and professional innovation today.</p>
-       </div>
-       <div class="card-hover bg-gradient-to-br from-slate-50 to-slate-100 p-6 sm:p-8 rounded-xl border border-slate-200">
-        <div class="flex items-center gap-3 mb-4 bg-gradient-to-br from-red-500 to-red-700 w-11 h-14 rounded-lg"><img src="https://i.ibb.co/bjZ91Qx2/owner.png" alt="Logo" class="h-12 w-auto object-contain" loading="lazy" onerror="console.error('Logo failed:', this.src);">
-         <div class="text-4xl font-bold text-red-600 ">
-          Owner
-         </div>
+      </div>
+      <!-- Notification Container -->
+      <div
+        id="notification-container"
+        class="fixed top-24 right-4 z-40 space-y-3 max-w-sm pointer-events-none"
+      ></div>
+      <!-- Navigation Bar -->
+      <nav
+        class="fixed top-0 left-0 right-0 z-50 glass-effect shadow-md border-b border-slate-200"
+      >
+        <div class="w-full px-4 sm:px-6 lg:px-8 py-0">
+          <div class="flex justify-between items-center h-20 sm:h-20">
+            <!-- Logo and Brand -->
+            <a
+              href="#home"
+              class="flex items-center gap-2 sm:gap-3 hover:opacity-80 smooth-transition"
+            >
+              <img
+                src="https://i.ibb.co/XZ5YBBnc/pkb.png"
+                alt="Gopshila Logo"
+                class="logo-img"
+                loading="lazy"
+                onerror="
+                  console.error('Logo failed to load:', this.src);
+                  this.style.display = 'none';
+                "
+              />
+              <div class="hidden sm:block">
+                <h1
+                  id="nav-company-name"
+                  class="text-lg sm:text-xl font-bold gradient-text"
+                >
+                  GOPSHILA
+                </h1>
+                <p class="text-xs text-slate-500">Enterprises</p>
+              </div></a
+            >
+            <!-- Desktop Navigation -->
+            <div class="hidden lg:flex items-center gap-3">
+              <a
+                href="#home"
+                class="text-slate-700 hover:text-red-600 font-medium smooth-transition"
+                >Home</a
+              >
+              <a
+                href="#about"
+                class="text-slate-700 hover:text-red-600 font-medium smooth-transition"
+                >About</a
+              >
+              <a
+                href="#services"
+                class="text-slate-700 hover:text-red-600 font-medium smooth-transition"
+                >Services</a
+              >
+              <a
+                href="#contact"
+                class="text-slate-700 hover:text-red-600 font-medium smooth-transition"
+                >Contact</a
+              >
+              <!-- Notification Bell -->
+              <button
+                id="notification-bell"
+                onclick="toggleNotifications()"
+                class="relative p-2 text-slate-700 hover:text-red-600 hover:bg-red-50 rounded-lg smooth-transition"
+                title="Toggle Notifications"
+              >
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewbox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+                  /></svg
+                ><span
+                  id="notification-badge"
+                  class="absolute top-1 right-1 w-3 h-3 bg-red-600 rounded-full animate-pulse-badge"
+                ></span>
+              </button>
+              <button
+                onclick="openGoogleMeetModal()"
+                class="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-2 rounded-lg font-semibold smooth-transition hover:shadow-lg flex items-center gap-2"
+              >
+                <svg class="w-4 h-4" fill="currentColor" viewbox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10" />
+                </svg>
+                Meet
+              </button>
+              <button
+                onclick="openVisitingCardModal()"
+                class="bg-gradient-to-r from-red-600 to-orange-600 text-white px-6 py-2 rounded-lg font-semibold smooth-transition hover:shadow-lg"
+              >
+                Business Card
+              </button>
+              <button
+                onclick="openRegistrationModal()"
+                class="border-2 border-red-600 text-red-600 px-6 py-2 rounded-lg font-semibold smooth-transition hover:bg-red-50"
+              >
+                Register
+              </button>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button
+              id="mobile-menu-btn"
+              class="lg:hidden p-2 text-slate-700 hover:bg-slate-100 rounded-lg smooth-transition"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewbox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </button>
+          </div>
+          <!-- Mobile Menu -->
+          <div
+            id="mobile-menu"
+            class="hidden lg:hidden pb-4 border-t border-slate-200 bg-white"
+          >
+            <a
+              href="#home"
+              class="block py-3 px-4 text-slate-700 hover:text-red-600 hover:bg-red-50 font-medium smooth-transition"
+              >Home</a
+            >
+            <a
+              href="#about"
+              class="block py-3 px-4 text-slate-700 hover:text-red-600 hover:bg-red-50 font-medium smooth-transition"
+              >About</a
+            >
+            <a
+              href="#services"
+              class="block py-3 px-4 text-slate-700 hover:text-red-600 hover:bg-red-50 font-medium smooth-transition"
+              >Services</a
+            >
+            <a
+              href="#contact"
+              class="block py-3 px-4 text-slate-700 hover:text-red-600 hover:bg-red-50 font-medium smooth-transition"
+              >Contact</a
+            >
+            <div class="px-4 space-y-2 pt-2">
+              <button
+                onclick="toggleNotifications()"
+                class="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-yellow-500 to-yellow-600 text-white px-4 py-3 rounded-lg font-semibold smooth-transition"
+              >
+                <svg
+                  class="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewbox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+                  /></svg
+                ><span id="mobile-notif-text">Enable Notifications</span>
+              </button>
+              <button
+                onclick="openGoogleMeetModal()"
+                class="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white px-4 py-3 rounded-lg font-semibold smooth-transition"
+              >
+                Google Meet
+              </button>
+              <button
+                onclick="openVisitingCardModal()"
+                class="w-full bg-gradient-to-r from-red-600 to-orange-600 text-white px-4 py-3 rounded-lg font-semibold smooth-transition"
+              >
+                Business Card
+              </button>
+              <button
+                onclick="openRegistrationModal()"
+                class="w-full border-2 border-red-600 text-red-600 px-4 py-3 rounded-lg font-semibold smooth-transition hover:bg-red-50"
+              >
+                Register
+              </button>
+            </div>
+          </div>
         </div>
-        <h3 class="text-xl font-bold text-slate-900 mb-3" id="owner-name">Priyanshu Kamble</h3>
-        <p class="text-slate-600">Visionary leader committed to excellence.</p>
-       </div>
-       <div class="card-hover bg-gradient-to-br from-slate-50 to-slate-100 p-6 sm:p-8 rounded-xl border border-slate-200">
-        <div class="flex items-center gap-3 mb-4 bg-gradient-to-br from-red-500 to-red-700 w-11 h-14 rounded-lg"><img src="https://i.ibb.co/k6J6g0DZ/location.png" alt="Logo" class="h-12 w-auto object-contain" loading="lazy" onerror="console.error('Logo failed:', this.src);">
-         <div class="text-4xl font-bold text-red-600">
-          Location
-         </div>
+      </nav>
+      <!-- Hero Section with Animated 3D Business Card -->
+      <section
+        id="home"
+        class="pt-24 sm:pt-32 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 via-red-50 to-orange-50"
+      >
+        <div class="max-w-6xl mx-auto">
+          <div
+            class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center"
+          >
+            <div class="animate-slide-left">
+              <h2
+                id="hero-title"
+                class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-4 sm:mb-6 leading-tight"
+              >
+                Transforming Visions Into Reality
+              </h2>
+              <p
+                id="hero-subtitle"
+                class="text-base sm:text-lg md:text-xl text-slate-600 mb-6 sm:mb-8 leading-relaxed"
+              >
+                Gopshila Enterprises delivers professional solutions tailored to
+                your business needs with excellence and integrity.
+              </p>
+              <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                <button
+                  onclick="
+                    document
+                      .getElementById('contact')
+                      .scrollIntoView({ behavior: 'smooth' })
+                  "
+                  class="bg-gradient-to-r from-red-600 to-orange-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold smooth-transition hover:shadow-lg"
+                >
+                  Get Started
+                </button>
+                <button
+                  onclick="
+                    document
+                      .getElementById('about')
+                      .scrollIntoView({ behavior: 'smooth' })
+                  "
+                  class="border-2 border-red-600 text-red-600 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold smooth-transition hover:bg-red-50"
+                >
+                  Learn More
+                </button>
+              </div>
+            </div>
+            <!-- Animated 3D Business Card -->
+            <div
+              class="animate-slide-right flex items-center justify-center w-full"
+            >
+              <div
+                class="relative w-full max-w-sm h-72 sm:h-80 md:h-96 perspective-container"
+              >
+                <div
+                  class="absolute inset-0 animate-card-float"
+                  style="transform-style: preserve-3d"
+                >
+                  <!-- Card Background with Gradient -->
+                  <div
+                    class="w-full h-full rounded-2xl shadow-2xl overflow-hidden business-card-3d relative"
+                  >
+                    <!-- Shine Effect -->
+                    <div class="card-shine"></div>
+                    <!-- Decorative Circles -->
+                    <div
+                      class="absolute top-0 right-0 w-40 h-40 bg-orange-400 rounded-full opacity-20 blur-3xl -mr-20 -mt-20"
+                    ></div>
+                    <div
+                      class="absolute bottom-0 left-0 w-40 h-40 bg-red-900 rounded-full opacity-20 blur-3xl -ml-20 -mb-20"
+                    ></div>
+                    <!-- Card Content -->
+                    <div
+                      class="relative h-full p-5 sm:p-8 flex flex-col justify-between z-10"
+                    >
+                      <!-- Header with Logo -->
+                      <div class="space-y-2">
+                        <div class="flex items-center gap-2 sm:gap-3">
+                          <img
+                            src="https://i.ibb.co/XZ5YBBnc/pkb.png"
+                            alt="Logo"
+                            class="h-10 sm:h-12 w-auto object-contain"
+                            loading="lazy"
+                            onerror="console.error('Logo failed:', this.src)"
+                          />
+                          <div>
+                            <h2
+                              id="card-home-company"
+                              class="text-lg sm:text-xl font-bold text-white"
+                            >
+                              GOPSHILA
+                            </h2>
+                            <p class="text-xs text-orange-100 font-semibold">
+                              ENTERPRISES
+                            </p>
+                          </div>
+                        </div>
+                        <p
+                          id="card-home-tagline"
+                          class="text-orange-100 text-xs sm:text-sm font-light pl-1"
+                        >
+                          Professional Excellence
+                        </p>
+                      </div>
+                      <!-- Contact Info Section -->
+                      <div
+                        class="space-y-2 border-t-2 border-b-2 border-orange-300 border-opacity-40 py-3"
+                      >
+                        <div class="flex items-center gap-2">
+                          <svg
+                            class="w-4 h-4 sm:w-5 sm:h-5 text-orange-200 flex-shrink-0"
+                            fill="currentColor"
+                            viewbox="0 0 20 20"
+                          >
+                            <path
+                              d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"
+                            />
+                          </svg>
+                          <p
+                            id="card-home-email"
+                            class="text-xs text-white font-semibold truncate"
+                          >
+                            PRIYANSHUKAMBLE2006@GMAIL.COM
+                          </p>
+                        </div>
+                        <div class="flex items-center gap-2">
+                          <svg
+                            class="w-4 h-4 sm:w-5 sm:h-5 text-orange-200 flex-shrink-0"
+                            fill="currentColor"
+                            viewbox="0 0 20 20"
+                          >
+                            <path
+                              d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773c.265.667.612 1.288 1.047 1.839l1.548.773a1 1 0 01.54 1.06l-.74 4.435a1 1 0 01-.986.836H3a1 1 0 01-1-1V3z"
+                            />
+                          </svg>
+                          <p
+                            id="card-home-phone"
+                            class="text-xs text-white font-semibold"
+                          >
+                            +91 9130344312
+                          </p>
+                        </div>
+                      </div>
+                      <!-- Footer Info -->
+                      <div class="space-y-1">
+                        <div>
+                          <p class="text-orange-100 text-xs font-semibold">
+                            Owner
+                          </p>
+                          <p
+                            id="card-home-owner"
+                            class="text-white font-bold text-xs sm:text-sm"
+                          >
+                            Priyanshu Kamble
+                          </p>
+                        </div>
+                        <div>
+                          <p class="text-orange-100 text-xs font-semibold">
+                            Location
+                          </p>
+                          <p
+                            id="card-home-address"
+                            class="text-orange-100 text-xs leading-tight"
+                          >
+                            Ramtek &amp; Kanhan, Nagpur-441404
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Floating Background Accent -->
+                <div
+                  class="absolute -top-20 -right-20 w-48 h-48 bg-gradient-to-br from-orange-400 to-red-600 rounded-full opacity-15 blur-3xl animate-pulse"
+                ></div>
+                <div
+                  class="absolute -bottom-20 -left-20 w-48 h-48 bg-gradient-to-br from-red-600 to-orange-800 rounded-full opacity-15 blur-3xl animate-pulse"
+                  style="animation-delay: 1.5s"
+                ></div>
+              </div>
+            </div>
+          </div>
         </div>
-        <h3 class="text-xl font-bold text-slate-900 mb-3">Ramtek &amp; Kanhan</h3>
-        <p class="text-slate-600">Serving clients across Nagpur region and globally.</p>
-       </div>
-      </div>
-      <div class="bg-gradient-to-r from-red-50 to-orange-50 border-2 border-red-200 p-6 sm:p-8 rounded-xl text-center">
-       <p class="text-base sm:text-lg md:text-xl text-slate-700 leading-relaxed">Gopshila Enterprises is dedicated to providing innovative, professional solutions that empower businesses to achieve their goals. With a commitment to excellence, integrity, and customer satisfaction, we partner with clients to deliver transformative results.</p>
-      </div>
-     </div>
-    </div>
-   </section><!-- Services Section -->
-   <section id="services" class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50 to-white">
-    <div class="max-w-6xl mx-auto">
-     <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-12 text-center animate-fade">Our Services</h2>
-     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-      <div class="card-hover bg-white p-6 sm:p-8 rounded-xl border border-slate-200 shadow-sm hover:shadow-xl">
-       <div class="w-16 h-16 bg-gradient-to-br from-red-100 to-orange-50 rounded-xl flex items-center justify-center mb-6">
-        <svg class="w-8 h-8 text-red-600" fill="currentColor" viewbox="0 0 20 20">
-         <path d="M13 7H7v6h6V7z" />
-        </svg>
-       </div>
-       <h3 class="text-xl sm:text-2xl font-bold text-slate-900 mb-3">Strategy</h3>
-       <p class="text-slate-600">Customized business strategies aligned with your market position and growth objectives.</p>
-      </div>
-      <div class="card-hover bg-white p-6 sm:p-8 rounded-xl border border-slate-200 shadow-sm hover:shadow-xl">
-       <div class="w-16 h-16 bg-gradient-to-br from-red-100 to-orange-50 rounded-xl flex items-center justify-center mb-6">
-        <svg class="w-8 h-8 text-red-600" fill="currentColor" viewbox="0 0 20 20">
-         <path d="M10.5 1.5H5a3.5 3.5 0 00-3.5 3.5v7A3.5 3.5 0 005 18.5h10a3.5 3.5 0 003.5-3.5V9.5" />
-        </svg>
-       </div>
-       <h3 class="text-xl sm:text-2xl font-bold text-slate-900 mb-3">Development</h3>
-       <p class="text-slate-600">Cutting-edge development solutions for digital innovation and business efficiency.</p>
-      </div>
-      <div class="card-hover bg-white p-6 sm:p-8 rounded-xl border border-slate-200 shadow-sm hover:shadow-xl">
-       <div class="w-16 h-16 bg-gradient-to-br from-red-100 to-orange-50 rounded-xl flex items-center justify-center mb-6">
-        <svg class="w-8 h-8 text-red-600" fill="currentColor" viewbox="0 0 20 20">
-         <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z" />
-        </svg>
-       </div>
-       <h3 class="text-xl sm:text-2xl font-bold text-slate-900 mb-3">Analytics</h3>
-       <p class="text-slate-600">Comprehensive data analysis to drive strategic decision-making and growth.</p>
-      </div>
-      <div class="card-hover bg-white p-6 sm:p-8 rounded-xl border border-slate-200 shadow-sm hover:shadow-xl">
-       <div class="w-16 h-16 bg-gradient-to-br from-red-100 to-orange-50 rounded-xl flex items-center justify-center mb-6">
-        <svg class="w-8 h-8 text-red-600" fill="currentColor" viewbox="0 0 20 20">
-         <path fill-rule="evenodd" d="M5 2a1 1 0 011 1v1h1a1 1 0 010 2H6v1a1 1 0 01-2 0V6H3a1 1 0 010-2h1V3a1 1 0 011-1z" clip-rule="evenodd" />
-        </svg>
-       </div>
-       <h3 class="text-xl sm:text-2xl font-bold text-slate-900 mb-3">Consulting</h3>
-       <p class="text-slate-600">Expert guidance tailored to optimize your business operations and results.</p>
-      </div>
-      <div class="card-hover bg-white p-6 sm:p-8 rounded-xl border border-slate-200 shadow-sm hover:shadow-xl">
-       <div class="w-16 h-16 bg-gradient-to-br from-red-100 to-orange-50 rounded-xl flex items-center justify-center mb-6">
-        <svg class="w-8 h-8 text-red-600" fill="currentColor" viewbox="0 0 20 20">
-         <path d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" />
-        </svg>
-       </div>
-       <h3 class="text-xl sm:text-2xl font-bold text-slate-900 mb-3">Support</h3>
-       <p class="text-slate-600">Round-the-clock support ensuring your business runs smoothly at all times.</p>
-      </div>
-      <div class="card-hover bg-white p-6 sm:p-8 rounded-xl border border-slate-200 shadow-sm hover:shadow-xl">
-       <div class="w-16 h-16 bg-gradient-to-br from-red-100 to-orange-50 rounded-xl flex items-center justify-center mb-6">
-        <svg class="w-8 h-8 text-red-600" fill="currentColor" viewbox="0 0 20 20">
-         <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v-2h8v2z" />
-        </svg>
-       </div>
-       <h3 class="text-xl sm:text-2xl font-bold text-slate-900 mb-3">Training</h3>
-       <p class="text-slate-600">Professional development programs to empower your team.</p>
-      </div>
-     </div>
-    </div>
-   </section><!-- Contact Section -->
-   <section id="contact" class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white">
-    <div class="max-w-6xl mx-auto">
-     <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-12 text-center animate-fade">Get In Touch</h2>
-     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-12">
-      <div class="card-hover bg-gradient-to-br from-slate-50 to-slate-100 p-6 sm:p-8 rounded-xl border border-slate-200">
-       <div class="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center mb-4">
-        <svg class="w-6 h-6 text-white" fill="currentColor" viewbox="0 0 20 20">
-         <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-        </svg>
-       </div>
-       <h3 class="text-xl font-bold text-slate-900 mb-2">Email</h3>
-       <p id="contact-email-display" class="text-slate-600 break-all text-sm">PRIYANSHUKAMBLE2005@GMAIL.COM</p>
-      </div>
-      <div class="card-hover bg-gradient-to-br from-slate-50 to-slate-100 p-6 sm:p-8 rounded-xl border border-slate-200">
-       <div class="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center mb-4">
-        <svg class="w-6 h-6 text-white" fill="currentColor" viewbox="0 0 20 20">
-         <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773c.265.667.612 1.288 1.047 1.839l1.548.773a1 1 0 01.54 1.06l-.74 4.435a1 1 0 01-.986.836H3a1 1 0 01-1-1V3z" />
-        </svg>
-       </div>
-       <h3 class="text-xl font-bold text-slate-900 mb-2">Phone</h3>
-       <p id="contact-phone-display" class="text-slate-600">+91 9130344312</p>
-      </div>
-      <div class="card-hover bg-gradient-to-br from-slate-50 to-slate-100 p-6 sm:p-8 rounded-xl border border-slate-200">
-       <div class="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center mb-4">
-        <svg class="w-6 h-6 text-white" fill="currentColor" viewbox="0 0 20 20">
-         <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
-        </svg>
-       </div>
-       <h3 class="text-xl font-bold text-slate-900 mb-2">Address</h3>
-       <p id="contact-address-display" class="text-slate-600">Ramtek &amp; Kanhan, Nagpur-441404</p>
-      </div>
-     </div>
-     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12"><!-- Contact Form -->
-      <div class="animate-scale">
-       <form id="contact-form" onsubmit="handleContactSubmit(event)" class="bg-gradient-to-br from-slate-50 to-slate-100 p-6 sm:p-8 rounded-xl border border-slate-200">
-        <h3 class="text-2xl font-bold text-slate-900 mb-6">Send Message</h3>
-        <div class="mb-4"><label class="block text-slate-700 font-semibold mb-2">Full Name</label> <input type="text" id="form-name" placeholder="Your name" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-red-500 focus:outline-none smooth-transition" required>
+      </section>
+      <!-- About Section -->
+      <section id="about" class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto">
+          <div class="animate-fade">
+            <h2
+              class="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-8 text-center"
+            >
+              About Gopshila Enterprises
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-12">
+              <div
+                class="card-hover bg-gradient-to-br from-slate-50 to-slate-100 p-6 sm:p-8 rounded-xl border border-slate-200"
+              >
+                <div
+                  class="flex items-center gap-3 mb-4 bg-gradient-to-br from-red-500 to-red-700 w-11 h-14 rounded-lg"
+                >
+                  <img
+                    src="https://i.ibb.co/spBCWR4k/founded.png"
+                    alt="Logo"
+                    class="h-12 w-auto object-contain"
+                    loading="lazy"
+                    onerror="console.error('Logo failed:', this.src)"
+                  />
+                  <div class="text-4xl font-bold text-red-600">Founded</div>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 mb-3">Est. 2025</h3>
+                <p class="text-slate-600">
+                  Building excellence and professional innovation today.
+                </p>
+              </div>
+              <div
+                class="card-hover bg-gradient-to-br from-slate-50 to-slate-100 p-6 sm:p-8 rounded-xl border border-slate-200"
+              >
+                <div
+                  class="flex items-center gap-3 mb-4 bg-gradient-to-br from-red-500 to-red-700 w-11 h-14 rounded-lg"
+                >
+                  <img
+                    src="https://i.ibb.co/bjZ91Qx2/owner.png"
+                    alt="Logo"
+                    class="h-12 w-auto object-contain"
+                    loading="lazy"
+                    onerror="console.error('Logo failed:', this.src)"
+                  />
+                  <div class="text-4xl font-bold text-red-600">Owner</div>
+                </div>
+                <h3
+                  class="text-xl font-bold text-slate-900 mb-3"
+                  id="owner-name"
+                >
+                  Priyanshu Kamble
+                </h3>
+                <p class="text-slate-600">
+                  Visionary leader committed to excellence.
+                </p>
+              </div>
+              <div
+                class="card-hover bg-gradient-to-br from-slate-50 to-slate-100 p-6 sm:p-8 rounded-xl border border-slate-200"
+              >
+                <div
+                  class="flex items-center gap-3 mb-4 bg-gradient-to-br from-red-500 to-red-700 w-11 h-14 rounded-lg"
+                >
+                  <img
+                    src="https://i.ibb.co/k6J6g0DZ/location.png"
+                    alt="Logo"
+                    class="h-12 w-auto object-contain"
+                    loading="lazy"
+                    onerror="console.error('Logo failed:', this.src)"
+                  />
+                  <div class="text-4xl font-bold text-red-600">Location</div>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 mb-3">
+                  Ramtek &amp; Kanhan
+                </h3>
+                <p class="text-slate-600">
+                  Serving clients across Nagpur region and globally.
+                </p>
+              </div>
+            </div>
+            <div
+              class="bg-gradient-to-r from-red-50 to-orange-50 border-2 border-red-200 p-6 sm:p-8 rounded-xl text-center"
+            >
+              <p
+                class="text-base sm:text-lg md:text-xl text-slate-700 leading-relaxed"
+              >
+                Gopshila Enterprises is dedicated to providing innovative,
+                professional solutions that empower businesses to achieve their
+                goals. With a commitment to excellence, integrity, and customer
+                satisfaction, we partner with clients to deliver transformative
+                results.
+              </p>
+            </div>
+          </div>
         </div>
-        <div class="mb-4"><label class="block text-slate-700 font-semibold mb-2">Email Address</label> <input type="email" id="form-email" placeholder="your@email.com" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-red-500 focus:outline-none smooth-transition" required>
+      </section>
+      <!-- Services Section -->
+      <section
+        id="services"
+        class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50 to-white"
+      >
+        <div class="max-w-6xl mx-auto">
+          <h2
+            class="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-12 text-center animate-fade"
+          >
+            Our Services
+          </h2>
+          <div
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
+          >
+            <div
+              class="card-hover bg-white p-6 sm:p-8 rounded-xl border border-slate-200 shadow-sm hover:shadow-xl"
+            >
+              <div
+                class="w-16 h-16 bg-gradient-to-br from-red-100 to-orange-50 rounded-xl flex items-center justify-center mb-6"
+              >
+                <svg
+                  class="w-8 h-8 text-red-600"
+                  fill="currentColor"
+                  viewbox="0 0 20 20"
+                >
+                  <path d="M13 7H7v6h6V7z" />
+                </svg>
+              </div>
+              <h3 class="text-xl sm:text-2xl font-bold text-slate-900 mb-3">
+                Strategy
+              </h3>
+              <p class="text-slate-600">
+                Customized business strategies aligned with your market position
+                and growth objectives.
+              </p>
+            </div>
+            <div
+              class="card-hover bg-white p-6 sm:p-8 rounded-xl border border-slate-200 shadow-sm hover:shadow-xl"
+            >
+              <div
+                class="w-16 h-16 bg-gradient-to-br from-red-100 to-orange-50 rounded-xl flex items-center justify-center mb-6"
+              >
+                <svg
+                  class="w-8 h-8 text-red-600"
+                  fill="currentColor"
+                  viewbox="0 0 20 20"
+                >
+                  <path
+                    d="M10.5 1.5H5a3.5 3.5 0 00-3.5 3.5v7A3.5 3.5 0 005 18.5h10a3.5 3.5 0 003.5-3.5V9.5"
+                  />
+                </svg>
+              </div>
+              <h3 class="text-xl sm:text-2xl font-bold text-slate-900 mb-3">
+                Development
+              </h3>
+              <p class="text-slate-600">
+                Cutting-edge development solutions for digital innovation and
+                business efficiency.
+              </p>
+            </div>
+            <div
+              class="card-hover bg-white p-6 sm:p-8 rounded-xl border border-slate-200 shadow-sm hover:shadow-xl"
+            >
+              <div
+                class="w-16 h-16 bg-gradient-to-br from-red-100 to-orange-50 rounded-xl flex items-center justify-center mb-6"
+              >
+                <svg
+                  class="w-8 h-8 text-red-600"
+                  fill="currentColor"
+                  viewbox="0 0 20 20"
+                >
+                  <path
+                    d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"
+                  />
+                </svg>
+              </div>
+              <h3 class="text-xl sm:text-2xl font-bold text-slate-900 mb-3">
+                Analytics
+              </h3>
+              <p class="text-slate-600">
+                Comprehensive data analysis to drive strategic decision-making
+                and growth.
+              </p>
+            </div>
+            <div
+              class="card-hover bg-white p-6 sm:p-8 rounded-xl border border-slate-200 shadow-sm hover:shadow-xl"
+            >
+              <div
+                class="w-16 h-16 bg-gradient-to-br from-red-100 to-orange-50 rounded-xl flex items-center justify-center mb-6"
+              >
+                <svg
+                  class="w-8 h-8 text-red-600"
+                  fill="currentColor"
+                  viewbox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5 2a1 1 0 011 1v1h1a1 1 0 010 2H6v1a1 1 0 01-2 0V6H3a1 1 0 010-2h1V3a1 1 0 011-1z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </div>
+              <h3 class="text-xl sm:text-2xl font-bold text-slate-900 mb-3">
+                Consulting
+              </h3>
+              <p class="text-slate-600">
+                Expert guidance tailored to optimize your business operations
+                and results.
+              </p>
+            </div>
+            <div
+              class="card-hover bg-white p-6 sm:p-8 rounded-xl border border-slate-200 shadow-sm hover:shadow-xl"
+            >
+              <div
+                class="w-16 h-16 bg-gradient-to-br from-red-100 to-orange-50 rounded-xl flex items-center justify-center mb-6"
+              >
+                <svg
+                  class="w-8 h-8 text-red-600"
+                  fill="currentColor"
+                  viewbox="0 0 20 20"
+                >
+                  <path
+                    d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
+                  />
+                </svg>
+              </div>
+              <h3 class="text-xl sm:text-2xl font-bold text-slate-900 mb-3">
+                Support
+              </h3>
+              <p class="text-slate-600">
+                Round-the-clock support ensuring your business runs smoothly at
+                all times.
+              </p>
+            </div>
+            <div
+              class="card-hover bg-white p-6 sm:p-8 rounded-xl border border-slate-200 shadow-sm hover:shadow-xl"
+            >
+              <div
+                class="w-16 h-16 bg-gradient-to-br from-red-100 to-orange-50 rounded-xl flex items-center justify-center mb-6"
+              >
+                <svg
+                  class="w-8 h-8 text-red-600"
+                  fill="currentColor"
+                  viewbox="0 0 20 20"
+                >
+                  <path
+                    d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v-2h8v2z"
+                  />
+                </svg>
+              </div>
+              <h3 class="text-xl sm:text-2xl font-bold text-slate-900 mb-3">
+                Training
+              </h3>
+              <p class="text-slate-600">
+                Professional development programs to empower your team.
+              </p>
+            </div>
+          </div>
         </div>
-        <div class="mb-4"><label class="block text-slate-700 font-semibold mb-2">Phone Number</label> <input type="tel" id="form-phone" placeholder="+91 9130000000" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-red-500 focus:outline-none smooth-transition" required>
+      </section>
+      <!-- Contact Section -->
+      <section
+        id="contact"
+        class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white"
+      >
+        <div class="max-w-6xl mx-auto">
+          <h2
+            class="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-12 text-center animate-fade"
+          >
+            Get In Touch
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-12">
+            <div
+              class="card-hover bg-gradient-to-br from-slate-50 to-slate-100 p-6 sm:p-8 rounded-xl border border-slate-200"
+            >
+              <div
+                class="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center mb-4"
+              >
+                <svg
+                  class="w-6 h-6 text-white"
+                  fill="currentColor"
+                  viewbox="0 0 20 20"
+                >
+                  <path
+                    d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"
+                  />
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 mb-2">Email</h3>
+              <p
+                id="contact-email-display"
+                class="text-slate-600 break-all text-sm"
+              >
+                PRIYANSHUKAMBLE2006@GMAIL.COM
+              </p>
+            </div>
+            <div
+              class="card-hover bg-gradient-to-br from-slate-50 to-slate-100 p-6 sm:p-8 rounded-xl border border-slate-200"
+            >
+              <div
+                class="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center mb-4"
+              >
+                <svg
+                  class="w-6 h-6 text-white"
+                  fill="currentColor"
+                  viewbox="0 0 20 20"
+                >
+                  <path
+                    d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773c.265.667.612 1.288 1.047 1.839l1.548.773a1 1 0 01.54 1.06l-.74 4.435a1 1 0 01-.986.836H3a1 1 0 01-1-1V3z"
+                  />
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 mb-2">Phone</h3>
+              <p id="contact-phone-display" class="text-slate-600">
+                +91 9130344312
+              </p>
+            </div>
+            <div
+              class="card-hover bg-gradient-to-br from-slate-50 to-slate-100 p-6 sm:p-8 rounded-xl border border-slate-200"
+            >
+              <div
+                class="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center mb-4"
+              >
+                <svg
+                  class="w-6 h-6 text-white"
+                  fill="currentColor"
+                  viewbox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 mb-2">Address</h3>
+              <p id="contact-address-display" class="text-slate-600">
+                Ramtek &amp; Kanhan, Nagpur-441404
+              </p>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
+            <!-- Contact Form -->
+            <div class="animate-scale">
+              <form
+                id="contact-form"
+                onsubmit="handleContactSubmit(event)"
+                class="bg-gradient-to-br from-slate-50 to-slate-100 p-6 sm:p-8 rounded-xl border border-slate-200"
+              >
+                <h3 class="text-2xl font-bold text-slate-900 mb-6">
+                  Send Message
+                </h3>
+                <div class="mb-4">
+                  <label class="block text-slate-700 font-semibold mb-2"
+                    >Full Name</label
+                  >
+                  <input
+                    type="text"
+                    id="form-name"
+                    placeholder="Your name"
+                    class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-red-500 focus:outline-none smooth-transition"
+                    required
+                  />
+                </div>
+                <div class="mb-4">
+                  <label class="block text-slate-700 font-semibold mb-2"
+                    >Email Address</label
+                  >
+                  <input
+                    type="email"
+                    id="form-email"
+                    placeholder="your@email.com"
+                    class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-red-500 focus:outline-none smooth-transition"
+                    required
+                  />
+                </div>
+                <div class="mb-4">
+                  <label class="block text-slate-700 font-semibold mb-2"
+                    >Phone Number</label
+                  >
+                  <input
+                    type="tel"
+                    id="form-phone"
+                    placeholder="+91 9130000000"
+                    class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-red-500 focus:outline-none smooth-transition"
+                    required
+                  />
+                </div>
+                <div class="mb-6">
+                  <label class="block text-slate-700 font-semibold mb-2"
+                    >Message</label
+                  >
+                  <textarea
+                    id="form-message"
+                    placeholder="Your message"
+                    rows="5"
+                    class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-red-500 focus:outline-none smooth-transition resize-none"
+                    required
+                  ></textarea>
+                </div>
+                <button
+                  type="submit"
+                  class="w-full bg-gradient-to-r from-red-600 to-orange-600 text-white py-3 rounded-lg font-semibold smooth-transition hover:shadow-lg"
+                >
+                  Send Message
+                </button>
+                <div
+                  id="form-message-display"
+                  class="mt-4 text-center text-green-600 font-semibold hidden"
+                ></div>
+              </form>
+            </div>
+            <!-- Info Section -->
+            <div class="space-y-6">
+              <div
+                class="animate-scale bg-gradient-to-br from-slate-50 to-slate-100 p-6 sm:p-8 rounded-xl border border-slate-200"
+              >
+                <h3 class="text-2xl font-bold text-slate-900 mb-4">
+                  Need Assistance?
+                </h3>
+                <p class="text-slate-600 mb-6">
+                  Click the Meet button in the navigation to start a video call
+                  or schedule a personalized consultation with our team.
+                </p>
+                <button
+                  onclick="openGoogleMeetModal()"
+                  class="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3 rounded-lg font-semibold smooth-transition hover:shadow-lg"
+                >
+                  Schedule Meeting
+                </button>
+              </div>
+              <div
+                class="bg-gradient-to-br from-red-600 to-orange-700 text-white p-6 sm:p-8 rounded-xl border border-red-500"
+              >
+                <h3 class="text-2xl font-bold mb-4">Current Date &amp; Time</h3>
+                <div id="datetime-display" class="text-lg font-semibold mb-2">
+                  Loading...
+                </div>
+                <p class="text-red-100 text-sm">India Standard Time (IST)</p>
+              </div>
+            </div>
+          </div>
+          <!-- Messages Display -->
+          <div class="mt-12 animate-fade">
+            <h3 class="text-2xl font-bold text-slate-900 mb-6">
+              Recent Inquiries
+            </h3>
+            <div
+              id="messages-container"
+              class="grid grid-cols-1 md:grid-cols-2 gap-6"
+            >
+              <div class="text-center text-slate-500 col-span-full py-8">
+                No inquiries yet
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="mb-6"><label class="block text-slate-700 font-semibold mb-2">Message</label> <textarea id="form-message" placeholder="Your message" rows="5" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-red-500 focus:outline-none smooth-transition resize-none" required></textarea>
-        </div><button type="submit" class="w-full bg-gradient-to-r from-red-600 to-orange-600 text-white py-3 rounded-lg font-semibold smooth-transition hover:shadow-lg">Send Message</button>
-        <div id="form-message-display" class="mt-4 text-center text-green-600 font-semibold hidden"></div>
-       </form>
-      </div><!-- Info Section -->
-      <div class="space-y-6">
-       <div class="animate-scale bg-gradient-to-br from-slate-50 to-slate-100 p-6 sm:p-8 rounded-xl border border-slate-200">
-        <h3 class="text-2xl font-bold text-slate-900 mb-4">Need Assistance?</h3>
-        <p class="text-slate-600 mb-6">Click the Meet button in the navigation to start a video call or schedule a personalized consultation with our team.</p><button onclick="openGoogleMeetModal()" class="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3 rounded-lg font-semibold smooth-transition hover:shadow-lg">Schedule Meeting</button>
-       </div>
-       <div class="bg-gradient-to-br from-red-600 to-orange-700 text-white p-6 sm:p-8 rounded-xl border border-red-500">
-        <h3 class="text-2xl font-bold mb-4">Current Date &amp; Time</h3>
-        <div id="datetime-display" class="text-lg font-semibold mb-2">
-         Loading...
+      </section>
+      <!-- Footer -->
+      <footer
+        class="bg-slate-900 text-white py-12 px-4 sm:px-6 lg:px-8 border-t border-slate-800"
+      >
+        <div class="max-w-6xl mx-auto">
+          <div
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-8"
+          >
+            <div>
+              <div class="flex items-center gap-2 mb-4">
+                <img
+                  src="https://i.ibb.co/XZ5YBBnc/pkb.png"
+                  alt="Logo"
+                  class="h-10 w-auto object-contain"
+                  loading="lazy"
+                  onerror="console.error('Logo failed:', this.src)"
+                />
+                <h4 id="footer-company" class="text-lg sm:text-xl font-bold">
+                  GOPSHILA ENTERPRISES
+                </h4>
+              </div>
+              <p class="text-slate-400">
+                Professional excellence and innovative solutions since 2025.
+              </p>
+              <p class="text-slate-400 mt-2 text-sm">Owner: Priyanshu Kamble</p>
+            </div>
+            <div>
+              <h4 class="text-lg sm:text-xl font-bold mb-4">Quick Links</h4>
+              <ul class="space-y-2 text-slate-400">
+                <li>
+                  <a href="#home" class="hover:text-white smooth-transition"
+                    >Home</a
+                  >
+                </li>
+                <li>
+                  <a href="#services" class="hover:text-white smooth-transition"
+                    >Services</a
+                  >
+                </li>
+                <li>
+                  <a href="#contact" class="hover:text-white smooth-transition"
+                    >Contact</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="text-lg sm:text-xl font-bold mb-4">Connect</h4>
+              <p class="text-slate-400 mb-3">Follow us on social media</p>
+              <div class="flex gap-4">
+                <a
+                  href="#"
+                  class="w-10 h-10 bg-slate-700 rounded-lg flex items-center justify-center hover:bg-red-600 smooth-transition"
+                  >f</a
+                >
+                <a
+                  href="#"
+                  class="w-10 h-10 bg-slate-700 rounded-lg flex items-center justify-center hover:bg-red-600 smooth-transition"
+                  >t</a
+                >
+                <a
+                  href="#"
+                  class="w-10 h-10 bg-slate-700 rounded-lg flex items-center justify-center hover:bg-red-600 smooth-transition"
+                  >in</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="border-t border-slate-800 pt-8">
+            <div
+              class="flex flex-col sm:flex-row justify-between items-center gap-4"
+            >
+              <p class="text-slate-400 text-center sm:text-left">
+                © <span id="footer-year">2026</span> Gopshila Enterprises. All
+                rights reserved.
+              </p>
+              <div class="text-slate-400 text-center">
+                <p>
+                  Website Visitors:
+                  <span id="visitor-count" class="font-bold text-red-400"
+                    >0</span
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-        <p class="text-red-100 text-sm">India Standard Time (IST)</p>
-       </div>
+      </footer>
+      <!-- Google Meet Modal -->
+      <div
+        id="google-meet-modal"
+        class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4"
+      >
+        <div
+          class="bg-white rounded-2xl shadow-2xl max-w-md w-full p-6 sm:p-8 animate-scale"
+        >
+          <h3
+            class="text-2xl sm:text-3xl font-bold text-slate-900 mb-2 text-center"
+          >
+            Google Meet
+          </h3>
+          <p class="text-slate-600 text-center mb-6">
+            Start or join a meeting instantly
+          </p>
+          <div
+            id="meet-code-section"
+            class="hidden bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl mb-6 border-2 border-blue-200"
+          >
+            <p class="text-sm text-slate-600 mb-2">Meeting Code:</p>
+            <div
+              class="bg-white p-4 rounded-lg border-2 border-blue-300 mb-4 flex items-center justify-between gap-2"
+            >
+              <code
+                id="meet-code-display"
+                class="text-base sm:text-lg font-bold text-blue-600 break-all"
+                >Loading...</code
+              >
+              <button
+                onclick="copyMeetCode()"
+                class="ml-2 bg-blue-600 text-white px-3 py-2 rounded-lg hover:bg-blue-700 smooth-transition text-sm font-semibold flex-shrink-0"
+              >
+                Copy
+              </button>
+            </div>
+            <p class="text-xs text-slate-600 mb-4">
+              Share this code with participants to join the meeting
+            </p>
+            <div class="space-y-3">
+              <button
+                onclick="copyAndShare('whatsapp')"
+                class="w-full flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg font-semibold smooth-transition text-sm"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24">
+                  <path
+                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-9.746 9.798c0 2.734.732 5.403 2.124 7.728L3.54 23.206l8.232-2.16c2.261 1.226 4.8 1.876 7.456 1.876 9.8 0 17.195-8.5 17.195-18.978C21.505 6.272 15.497.265 8.35.265z"
+                  />
+                </svg>
+                WhatsApp
+              </button>
+              <button
+                onclick="copyAndShare('email')"
+                class="w-full flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white py-3 rounded-lg font-semibold smooth-transition text-sm"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 20 20">
+                  <path
+                    d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"
+                  />
+                </svg>
+                Email
+              </button>
+              <button
+                onclick="copyAndShare('sms')"
+                class="w-full flex items-center justify-center gap-2 bg-purple-600 hover:bg-purple-700 text-white py-3 rounded-lg font-semibold smooth-transition text-sm"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 20 20">
+                  <path
+                    d="M2 5a2 2 0 012-2h12a2 2 0 012 2v10a2 2 0 01-2 2H4a2 2 0 01-2-2V5z"
+                  />
+                </svg>
+                SMS
+              </button>
+            </div>
+          </div>
+          <div class="space-y-3">
+            <button
+              onclick="startMeeting()"
+              class="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-4 rounded-lg font-bold smooth-transition hover:shadow-lg text-base sm:text-lg"
+            >
+              Generate &amp; Join Meeting
+            </button>
+            <button
+              onclick="closeGoogleMeetModal()"
+              class="w-full border-2 border-slate-300 text-slate-700 py-3 rounded-lg font-semibold smooth-transition hover:bg-slate-50"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
       </div>
-     </div><!-- Messages Display -->
-     <div class="mt-12 animate-fade">
-      <h3 class="text-2xl font-bold text-slate-900 mb-6">Recent Inquiries</h3>
-      <div id="messages-container" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-       <div class="text-center text-slate-500 col-span-full py-8">
-        No inquiries yet
-       </div>
-      </div>
-     </div>
-    </div>
-   </section><!-- Footer -->
-   <footer class="bg-slate-900 text-white py-12 px-4 sm:px-6 lg:px-8 border-t border-slate-800">
-    <div class="max-w-6xl mx-auto">
-     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+      <!-- Visiting Card Modal -->
+      <div
+        id="visiting-card-modal"
+        class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4"
+      >
+        <div
+          class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full p-6 sm:p-8 animate-scale"
+        >
+          <h3
+            class="text-2xl sm:text-3xl font-bold text-slate-900 mb-6 sm:mb-8 text-center"
+          >
+            Business Card
+          </h3>
+          <div class="w-full max-w-[700px] mx-auto px-3 sm:px-0">
+
+  <div
+    id="visiting-card-content"
+    class="bg-gradient-to-br from-slate-900 via-red-900 to-orange-800 text-white 
+           p-5 sm:p-8 md:p-12 
+           rounded-xl mb-8 
+           border-4 border-orange-500 
+           relative overflow-hidden"
+
+    style="aspect-ratio: 3.5/2;"
+  >
+
+    <!-- Shine Effect -->
+    <div class="card-shine absolute inset-0 opacity-30"></div>
+
+    <div class="relative h-full flex flex-col justify-between z-10">
+
+      <!-- TOP -->
       <div>
-       <div class="flex items-center gap-2 mb-4"><img src="https://i.ibb.co/XZ5YBBnc/pkb.png" alt="Logo" class="h-10 w-auto object-contain" loading="lazy" onerror="console.error('Logo failed:', this.src);">
-        <h4 id="footer-company" class="text-lg sm:text-xl font-bold">GOPSHILA ENTERPRISES</h4>
-       </div>
-       <p class="text-slate-400">Professional excellence and innovative solutions since 2025.</p>
-       <p class="text-slate-400 mt-2 text-sm">Owner: Priyanshu Kamble</p>
-      </div>
-      <div>
-       <h4 class="text-lg sm:text-xl font-bold mb-4">Quick Links</h4>
-       <ul class="space-y-2 text-slate-400">
-        <li><a href="#home" class="hover:text-white smooth-transition">Home</a></li>
-        <li><a href="#services" class="hover:text-white smooth-transition">Services</a></li>
-        <li><a href="#contact" class="hover:text-white smooth-transition">Contact</a></li>
-       </ul>
-      </div>
-      <div>
-       <h4 class="text-lg sm:text-xl font-bold mb-4">Connect</h4>
-       <p class="text-slate-400 mb-3">Follow us on social media</p>
-       <div class="flex gap-4"><a href="#" class="w-10 h-10 bg-slate-700 rounded-lg flex items-center justify-center hover:bg-red-600 smooth-transition">f</a> <a href="#" class="w-10 h-10 bg-slate-700 rounded-lg flex items-center justify-center hover:bg-red-600 smooth-transition">t</a> <a href="#" class="w-10 h-10 bg-slate-700 rounded-lg flex items-center justify-center hover:bg-red-600 smooth-transition">in</a>
-       </div>
-      </div>
-     </div>
-     <div class="border-t border-slate-800 pt-8">
-      <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
-       <p class="text-slate-400 text-center sm:text-left">© <span id="footer-year">2026</span> Gopshila Enterprises. All rights reserved.</p>
-       <div class="text-slate-400 text-center">
-        <p>Website Visitors: <span id="visitor-count" class="font-bold text-red-400">0</span></p>
-       </div>
-      </div>
-     </div>
-    </div>
-   </footer><!-- Google Meet Modal -->
-   <div id="google-meet-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
-    <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full p-6 sm:p-8 animate-scale">
-     <h3 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-2 text-center">Google Meet</h3>
-     <p class="text-slate-600 text-center mb-6">Start or join a meeting instantly</p>
-     <div id="meet-code-section" class="hidden bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl mb-6 border-2 border-blue-200">
-      <p class="text-sm text-slate-600 mb-2">Meeting Code:</p>
-      <div class="bg-white p-4 rounded-lg border-2 border-blue-300 mb-4 flex items-center justify-between gap-2"><code id="meet-code-display" class="text-base sm:text-lg font-bold text-blue-600 break-all">Loading...</code> <button onclick="copyMeetCode()" class="ml-2 bg-blue-600 text-white px-3 py-2 rounded-lg hover:bg-blue-700 smooth-transition text-sm font-semibold flex-shrink-0">Copy</button>
-      </div>
-      <p class="text-xs text-slate-600 mb-4">Share this code with participants to join the meeting</p>
-      <div class="space-y-3"><button onclick="copyAndShare('whatsapp')" class="w-full flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg font-semibold smooth-transition text-sm">
-        <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24">
-         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-9.746 9.798c0 2.734.732 5.403 2.124 7.728L3.54 23.206l8.232-2.16c2.261 1.226 4.8 1.876 7.456 1.876 9.8 0 17.195-8.5 17.195-18.978C21.505 6.272 15.497.265 8.35.265z" />
-        </svg> WhatsApp </button> <button onclick="copyAndShare('email')" class="w-full flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white py-3 rounded-lg font-semibold smooth-transition text-sm">
-        <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 20 20">
-         <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-        </svg> Email </button> <button onclick="copyAndShare('sms')" class="w-full flex items-center justify-center gap-2 bg-purple-600 hover:bg-purple-700 text-white py-3 rounded-lg font-semibold smooth-transition text-sm">
-        <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 20 20">
-         <path d="M2 5a2 2 0 012-2h12a2 2 0 012 2v10a2 2 0 01-2 2H4a2 2 0 01-2-2V5z" />
-        </svg> SMS </button>
-      </div>
-     </div>
-     <div class="space-y-3"><button onclick="startMeeting()" class="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-4 rounded-lg font-bold smooth-transition hover:shadow-lg text-base sm:text-lg"> Generate &amp; Join Meeting </button> <button onclick="closeGoogleMeetModal()" class="w-full border-2 border-slate-300 text-slate-700 py-3 rounded-lg font-semibold smooth-transition hover:bg-slate-50">Cancel</button>
-     </div>
-    </div>
-   </div><!-- Visiting Card Modal -->
-   <div id="visiting-card-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
-    <div class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full p-6 sm:p-8 animate-scale">
-     <h3 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-6 sm:mb-8 text-center">Business Card</h3>
-     <div id="visiting-card-content" class="bg-gradient-to-br from-slate-900 via-red-900 to-orange-800 text-white p-8 sm:p-12 rounded-xl mb-8 border-4 border-orange-500" style="aspect-ratio: 3.5/2; position: relative; overflow: hidden;">
-      <div class="card-shine"></div>
-      <div class="relative h-full flex flex-col justify-between z-10">
-       <div>
-        <div class="flex items-center gap-2 mb-2"><img src="https://i.ibb.co/XZ5YBBnc/pkb.png" alt="Logo" class="h-8 w-auto object-contain" loading="lazy" onerror="console.error('Logo failed:', this.src);">
-         <h2 id="card-company-name" class="text-2xl sm:text-3xl font-bold">GOPSHILA ENTERPRISES</h2>
+        <div class="flex items-center gap-2 mb-2">
+          <img
+            src="https://i.ibb.co/XZ5YBBnc/pkb.png"
+            alt="Logo"
+            class="h-6 sm:h-8 md:h-10 w-auto object-contain"
+          />
+
+          <h2
+            id="card-company-name"
+            class="text-lg sm:text-2xl md:text-3xl font-bold leading-tight"
+          >
+            GOPSHILA ENTERPRISES
+          </h2>
         </div>
-        <p id="card-tagline" class="text-orange-200 text-xs sm:text-sm">Professional Excellence &amp; Innovation</p>
-       </div>
-       <div class="border-t-2 border-b-2 border-orange-400 py-4 space-y-2">
+
+        <p id="card-tagline"
+           class="text-orange-200 text-[10px] sm:text-xs md:text-sm">
+          Professional Excellence & Innovation
+        </p>
+      </div>
+
+      <!-- CENTER -->
+      <div
+        class="border-t-2 border-b-2 border-orange-400 
+               py-3 sm:py-4 space-y-2"
+      >
         <div>
-         <span class="text-orange-200 text-xs">Owner:</span> <span id="card-owner" class="font-semibold block text-sm">Priyanshu Kamble</span>
+          <span class="text-orange-200 text-[10px] sm:text-xs">Owner:</span>
+          <span id="card-owner"
+                class="font-semibold block text-xs sm:text-sm md:text-base">
+            Priyanshu Kamble
+          </span>
         </div>
-        <div class="flex justify-between text-xs sm:text-sm">
-         <span class="text-orange-200">Email:</span> <span id="card-email" class="font-semibold">PRIYANSHUKAMBLE2005@GMAIL.COM</span>
+
+        <div class="flex justify-between text-[11px] sm:text-sm">
+          <span class="text-orange-200">Email:</span>
+          <span id="card-email" class="font-semibold break-all">
+            PRIYANSHUKAMBLE2006@GMAIL.COM
+          </span>
         </div>
-        <div class="flex justify-between text-xs sm:text-sm">
-         <span class="text-orange-200">Phone:</span> <span id="card-phone" class="font-semibold">+91 9130344312</span>
+
+        <div class="flex justify-between text-[11px] sm:text-sm">
+          <span class="text-orange-200">Phone:</span>
+          <span id="card-phone" class="font-semibold">
+            +91 9130344312
+          </span>
         </div>
-       </div>
-       <div>
-        <p class="text-orange-100 text-xs">Ramtek &amp; Kanhan, Nagpur-441404</p>
-       </div>
       </div>
-     </div>
-     <div class="flex gap-4 flex-col sm:flex-row"><button onclick="downloadVisitingCardPDF()" class="flex-1 bg-gradient-to-r from-red-600 to-orange-600 text-white py-3 rounded-lg font-semibold smooth-transition hover:shadow-lg">Download PDF</button> <button onclick="closeVisitingCardModal()" class="flex-1 border-2 border-slate-300 text-slate-700 py-3 rounded-lg font-semibold smooth-transition hover:bg-slate-50">Close</button>
-      <button onclick="open3DView()" class="flex-1 bg-gradient-to-r from-red-600 to-orange-600 text-white py-3 rounded-lg font-semibold smooth-transition hover:shadow-lg">3D View</button>
-     </div>
+
+      <!-- BOTTOM -->
+      <div>
+        <p class="text-orange-100 text-[10px] sm:text-xs md:text-sm">
+          Ramtek & Kanhan, Nagpur-441404
+        </p>
+      </div>
+
     </div>
-   </div><!-- Registration Modal -->
-   <div id="registration-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
-    <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full p-6 sm:p-8 animate-scale">
-     <h3 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-6 text-center">Register With Us</h3>
-     <form id="registration-form" onsubmit="handleRegistration(event)" class="space-y-4">
-      <div><label class="block text-slate-700 font-semibold mb-2">Full Name</label> <input type="text" id="reg-name" placeholder="Your name" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-red-500 focus:outline-none smooth-transition" required>
-      </div>
-      <div><label class="block text-slate-700 font-semibold mb-2">Email Address</label> <input type="email" id="reg-email" placeholder="your@email.com" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-red-500 focus:outline-none smooth-transition" required>
-      </div>
-      <div><label class="block text-slate-700 font-semibold mb-2">Phone Number</label> <input type="tel" id="reg-phone" placeholder="+91 9130000000" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-red-500 focus:outline-none smooth-transition" required>
-      </div>
-      <div><label class="block text-slate-700 font-semibold mb-2">Company</label> <input type="text" id="reg-company" placeholder="Company name" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-red-500 focus:outline-none smooth-transition" required>
-      </div>
-      <div><label class="block text-slate-700 font-semibold mb-2">Service Interest</label> <select id="reg-service" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-red-500 focus:outline-none smooth-transition" required> <option value="">Select a service</option> <option value="Strategy">Strategy</option> <option value="Development">Development</option> <option value="Analytics">Analytics</option> <option value="Consulting">Consulting</option> <option value="Support">Support</option> <option value="Training">Training</option> </select>
-      </div><button type="submit" class="w-full bg-gradient-to-r from-red-600 to-orange-600 text-white py-3 rounded-lg font-semibold smooth-transition hover:shadow-lg">Register</button> <button type="button" onclick="closeRegistrationModal()" class="w-full border-2 border-slate-300 text-slate-700 py-3 rounded-lg font-semibold smooth-transition hover:bg-slate-50">Cancel</button>
-     </form>
-     <div id="reg-message" class="mt-4 text-center text-green-600 font-semibold hidden"></div>
-    </div>
-   </div>
   </div>
-  <script>
+</div>
 
-    // Back button link (change to your homepage link)
-  function open3DView() {
-    window.location.href = "3d.html"; // main website page
-  }
+          <div class="flex gap-4 flex-col sm:flex-row">
+            <button
+              onclick="downloadVisitingCardPDF()"
+              class="flex-1 bg-gradient-to-r from-red-600 to-orange-600 text-white py-3 rounded-lg font-semibold smooth-transition hover:shadow-lg"
+            >
+              Download PDF
+            </button>
+            <button
+              onclick="closeVisitingCardModal()"
+              class="flex-1 border-2 border-slate-300 text-slate-700 py-3 rounded-lg font-semibold smooth-transition hover:bg-slate-50"
+            >
+              Close
+            </button>
+            <button
+              onclick="open3DView()"
+              class="flex-1 bg-gradient-to-r from-red-600 to-orange-600 text-white py-3 rounded-lg font-semibold smooth-transition hover:shadow-lg"
+            >
+              3D View
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Registration Modal -->
+      <div
+        id="registration-modal"
+        class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4"
+      >
+        <div
+          class="bg-white rounded-2xl shadow-2xl max-w-md w-full p-6 sm:p-8 animate-scale"
+        >
+          <h3
+            class="text-2xl sm:text-3xl font-bold text-slate-900 mb-6 text-center"
+          >
+            Register With Us
+          </h3>
+          <form
+            id="registration-form"
+            onsubmit="handleRegistration(event)"
+            class="space-y-4"
+          >
+            <!-- <div>
+              <label class="block text-slate-700 font-semibold mb-2"
+                >Full Name</label
+              >
+              <input
+                type="text"
+                id="reg-name"
+                placeholder="Your name"
+                class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-red-500 focus:outline-none smooth-transition"
+                required
+              />
+            </div>
+            <div>
+              <label class="block text-slate-700 font-semibold mb-2"
+                >Email Address</label
+              >
+              <input
+                type="email"
+                id="reg-email"
+                placeholder="your@email.com"
+                class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-red-500 focus:outline-none smooth-transition"
+                required
+              />
+            </div>
+            <div>
+              <label class="block text-slate-700 font-semibold mb-2"
+                >Phone Number</label
+              >
+              <input
+                type="tel"
+                id="reg-phone"
+                placeholder="+91 9130000000"
+                class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-red-500 focus:outline-none smooth-transition"
+                required
+              />
+            </div>
+            <div>
+              <label class="block text-slate-700 font-semibold mb-2"
+                >Company</label
+              >
+              <input
+                type="text"
+                id="reg-company"
+                placeholder="Company name"
+                class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-red-500 focus:outline-none smooth-transition"
+                required
+              />
+            </div>
+            <div>
+              <label class="block text-slate-700 font-semibold mb-2"
+                >Service Interest</label
+              >
+              <select
+                id="reg-service"
+                class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-red-500 focus:outline-none smooth-transition"
+                required
+              >
+                <option value="">Select a service</option>
+                <option value="Strategy">Strategy</option>
+                <option value="Development">Development</option>
+                <option value="Analytics">Analytics</option>
+                <option value="Consulting">Consulting</option>
+                <option value="Support">Support</option>
+                <option value="Training">Training</option>
+              </select>
+            </div>
+            <button
+              type="submit"
+              class="w-full bg-gradient-to-r from-red-600 to-orange-600 text-white py-3 rounded-lg font-semibold smooth-transition hover:shadow-lg"
+            >
+              Register
+            </button> -->
 
-    let currentConfig = {
-      company_name: "GOPSHILA ENTERPRISES",
-      company_tagline: "Professional Excellence & Innovation",
-      owner_name: "Priyanshu Kamble",
-      contact_email: "PRIYANSHUKAMBLE2005@GMAIL.COM",
-      contact_phone: "+91 9130344312",
-      contact_address: "Ramtek & Kanhan, Nagpur-441404"
-    };
+            <div><h3 style="display: flex; align-items: center; justify-content: center; padding: 15px 15px; background-color: #dbb8b8; border-radius: 8px;">Coming Soon</h3><br><p><b>Contact:-</b> <a href="contactto:9130344312">9130344312</a></p><br><p><b>Email:-</b> <a href="mailto:priyanshukamble2006@gmail.com" style="color: blue;">priyanshukamble2006@gmail.com</a></p></div>
+          
+            <button
+              type="button"
+              onclick="closeRegistrationModal()"
+              class="w-full border-2 border-slate-300 text-slate-700 py-3 rounded-lg font-semibold smooth-transition hover:bg-slate-50"
+            >
+              Cancel
+            </button>
+          </form>
+          <div
+            id="reg-message"
+            class="mt-4 text-center text-green-600 font-semibold hidden"
+          ></div>
+        </div>
+      </div>
+    </div>
 
-    let allMessages = [];
-    let visitorCount = localStorage.getItem('visitorCount') ? parseInt(localStorage.getItem('visitorCount')) + 1 : 1;
-    let currentMeetCode = "";
-    let notificationsEnabled = localStorage.getItem('notificationsEnabled') === 'true';
+    <script>
+      (function () {
+        emailjs.init("DWOH3yLJmMla1AJOG");
+      })();
+    </script>
 
-    function updateNotificationBell() {
-      const badge = document.getElementById('notification-badge');
-      const bell = document.getElementById('notification-bell');
-      const mobileText = document.getElementById('mobile-notif-text');
-      
-      if (notificationsEnabled) {
-        badge.classList.remove('hidden');
-        bell.classList.add('text-red-600');
-        bell.title = 'Notifications enabled - click to disable';
-        if (mobileText) mobileText.textContent = 'Disable Notifications';
-      } else {
-        badge.classList.add('hidden');
-        bell.classList.remove('text-red-600');
-        bell.title = 'Notifications disabled - click to enable';
-        if (mobileText) mobileText.textContent = 'Enable Notifications';
+    <script>
+      // Back button link (change to your homepage link)
+      function open3DView() {
+        window.location.href = "3d.html"; // main website page
       }
-    }
 
-    function toggleNotifications() {
-      notificationsEnabled = !notificationsEnabled;
-      localStorage.setItem('notificationsEnabled', notificationsEnabled);
-      updateNotificationBell();
-      
-      if (notificationsEnabled) {
-        showNotification('🔔 Notifications Enabled!', 'You will receive important alerts', 'success');
-      } else {
-        showNotification('🔇 Notifications Disabled', 'You won\'t receive alerts anymore', 'info');
-      }
-    }
-
-    function showNotification(title, message, type = 'info') {
-      if (!notificationsEnabled) return;
-
-      const container = document.getElementById('notification-container');
-      const id = 'notif-' + Date.now();
-      const typeClasses = {
-        'success': 'bg-green-500 border-green-600',
-        'error': 'bg-red-500 border-red-600',
-        'info': 'bg-blue-500 border-blue-600',
-        'warning': 'bg-yellow-500 border-yellow-600'
+      let currentConfig = {
+        company_name: "GOPSHILA ENTERPRISES",
+        company_tagline: "Professional Excellence & Innovation",
+        owner_name: "Priyanshu Kamble",
+        contact_email: "PRIYANSHUKAMBLE2006@GMAIL.COM",
+        contact_phone: "+91 9130344312",
+        contact_address: "Ramtek & Kanhan, Nagpur-441404",
       };
 
-      const notification = document.createElement('div');
-      notification.id = id;
-      notification.className = `animate-notification-in ${typeClasses[type] || typeClasses['info']} text-white p-4 rounded-lg shadow-lg border-l-4 pointer-events-auto`;
-      notification.innerHTML = `
+      let allMessages = [];
+      let visitorCount = localStorage.getItem("visitorCount")
+        ? parseInt(localStorage.getItem("visitorCount")) + 1
+        : 1;
+      let currentMeetCode = "";
+      let notificationsEnabled =
+        localStorage.getItem("notificationsEnabled") === "true";
+
+      function updateNotificationBell() {
+        const badge = document.getElementById("notification-badge");
+        const bell = document.getElementById("notification-bell");
+        const mobileText = document.getElementById("mobile-notif-text");
+
+        if (notificationsEnabled) {
+          badge.classList.remove("hidden");
+          bell.classList.add("text-red-600");
+          bell.title = "Notifications enabled - click to disable";
+          if (mobileText) mobileText.textContent = "Disable Notifications";
+        } else {
+          badge.classList.add("hidden");
+          bell.classList.remove("text-red-600");
+          bell.title = "Notifications disabled - click to enable";
+          if (mobileText) mobileText.textContent = "Enable Notifications";
+        }
+      }
+
+      function toggleNotifications() {
+        notificationsEnabled = !notificationsEnabled;
+        localStorage.setItem("notificationsEnabled", notificationsEnabled);
+        updateNotificationBell();
+
+        if (notificationsEnabled) {
+          showNotification(
+            "🔔 Notifications Enabled!",
+            "You will receive important alerts",
+            "success",
+          );
+        } else {
+          showNotification(
+            "🔇 Notifications Disabled",
+            "You won't receive alerts anymore",
+            "info",
+          );
+        }
+      }
+
+      function showNotification(title, message, type = "info") {
+        if (!notificationsEnabled) return;
+
+        const container = document.getElementById("notification-container");
+        const id = "notif-" + Date.now();
+        const typeClasses = {
+          success: "bg-green-500 border-green-600",
+          error: "bg-red-500 border-red-600",
+          info: "bg-blue-500 border-blue-600",
+          warning: "bg-yellow-500 border-yellow-600",
+        };
+
+        const notification = document.createElement("div");
+        notification.id = id;
+        notification.className = `animate-notification-in ${typeClasses[type] || typeClasses["info"]} text-white p-4 rounded-lg shadow-lg border-l-4 pointer-events-auto`;
+        notification.innerHTML = `
         <div class="font-bold text-sm sm:text-base">${title}</div>
         <div class="text-xs sm:text-sm opacity-90">${message}</div>
       `;
 
-      container.appendChild(notification);
+        container.appendChild(notification);
 
-      setTimeout(() => {
-        notification.classList.remove('animate-notification-in');
-        notification.classList.add('animate-notification-out');
-        setTimeout(() => notification.remove(), 400);
-      }, 4000);
-    }
-
-    function enableNotifications() {
-      notificationsEnabled = true;
-      localStorage.setItem('notificationsEnabled', 'true');
-      updateNotificationBell();
-      closeWelcomePopup();
-      showNotification('✓ Notifications Enabled!', 'You will receive important alerts', 'success');
-    }
-
-    function closeWelcomePopup() {
-      document.getElementById('welcome-popup').classList.add('hidden');
-    }
-
-    function generateMeetCode() {
-      const chars = 'abcdefghijklmnopqrstuvwxyz';
-      let code = '';
-      for (let i = 0; i < 12; i++) {
-        code += chars.charAt(Math.floor(Math.random() * chars.length));
-        if (i === 3 || i === 7) code += '-';
+        setTimeout(() => {
+          notification.classList.remove("animate-notification-in");
+          notification.classList.add("animate-notification-out");
+          setTimeout(() => notification.remove(), 400);
+        }, 4000);
       }
-      return code;
-    }
 
-    function startMeeting() {
-      currentMeetCode = generateMeetCode();
-      document.getElementById('meet-code-display').textContent = currentMeetCode;
-      document.getElementById('meet-code-section').classList.remove('hidden');
-      
-      showNotification('🎥 Meeting Generated', `Code: ${currentMeetCode}`, 'info');
+      function enableNotifications() {
+        notificationsEnabled = true;
+        localStorage.setItem("notificationsEnabled", "true");
+        updateNotificationBell();
+        closeWelcomePopup();
+        showNotification(
+          "✓ Notifications Enabled!",
+          "You will receive important alerts",
+          "success",
+        );
+      }
 
-      const button = event.target;
-      const originalText = button.textContent;
-      button.textContent = '✓ Meeting Generated!';
-      button.disabled = true;
-      button.classList.add('opacity-75');
-      
-      setTimeout(() => {
-        button.textContent = originalText;
-        button.disabled = false;
-        button.classList.remove('opacity-75');
-      }, 2000);
-    }
+      function closeWelcomePopup() {
+        document.getElementById("welcome-popup").classList.add("hidden");
+      }
 
-    function copyMeetCode() {
-      navigator.clipboard.writeText(currentMeetCode).then(() => {
-        showNotification('✓ Copied!', 'Meeting code copied to clipboard', 'success');
+      function generateMeetCode() {
+        const chars = "abcdefghijklmnopqrstuvwxyz";
+        let code = "";
+        for (let i = 0; i < 12; i++) {
+          code += chars.charAt(Math.floor(Math.random() * chars.length));
+          if (i === 3 || i === 7) code += "-";
+        }
+        return code;
+      }
+
+      function startMeeting() {
+        currentMeetCode = generateMeetCode();
+        document.getElementById("meet-code-display").textContent =
+          currentMeetCode;
+        document.getElementById("meet-code-section").classList.remove("hidden");
+
+        showNotification(
+          "🎥 Meeting Generated",
+          `Code: ${currentMeetCode}`,
+          "info",
+        );
+
         const button = event.target;
         const originalText = button.textContent;
-        button.textContent = '✓ Copied!';
-        
+        button.textContent = "✓ Meeting Generated!";
+        button.disabled = true;
+        button.classList.add("opacity-75");
+
         setTimeout(() => {
           button.textContent = originalText;
+          button.disabled = false;
+          button.classList.remove("opacity-75");
         }, 2000);
-      });
-    }
-
-    function copyAndShare(platform) {
-      const shareText = `Join me on Google Meet: ${currentMeetCode}`;
-      
-      switch(platform) {
-        case 'whatsapp':
-          window.open(`https://wa.me/?text=${encodeURIComponent(shareText)}`, '_blank');
-          showNotification('Sharing to WhatsApp', 'Opening WhatsApp...', 'info');
-          break;
-        case 'email':
-          window.open(`mailto:?subject=Join My Google Meet&body=${encodeURIComponent(shareText)}`, '_blank');
-          showNotification('Sharing via Email', 'Opening email client...', 'info');
-          break;
-        case 'sms':
-          window.open(`sms:?body=${encodeURIComponent(shareText)}`, '_blank');
-          showNotification('Sharing via SMS', 'Opening SMS...', 'info');
-          break;
       }
-    }
 
-    function updateVisitorCount() {
-      localStorage.setItem('visitorCount', visitorCount);
-      document.getElementById('visitor-count').textContent = visitorCount;
-    }
+      function copyMeetCode() {
+        navigator.clipboard.writeText(currentMeetCode).then(() => {
+          showNotification(
+            "✓ Copied!",
+            "Meeting code copied to clipboard",
+            "success",
+          );
+          const button = event.target;
+          const originalText = button.textContent;
+          button.textContent = "✓ Copied!";
 
-    function updateDateTime() {
-      const now = new Date();
-      const istTime = new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Kolkata' }));
-      istTime.setFullYear(2026);
-      const options = { 
-        weekday: 'long', 
-        year: 'numeric', 
-        month: 'long', 
-        day: 'numeric', 
-        hour: '2-digit', 
-        minute: '2-digit', 
-        second: '2-digit'
-      };
-      const dateTimeStr = istTime.toLocaleDateString('en-US', options);
-      document.getElementById('datetime-display').textContent = dateTimeStr;
-      document.getElementById('footer-year').textContent = '2026';
-    }
+          setTimeout(() => {
+            button.textContent = originalText;
+          }, 2000);
+        });
+      }
 
-    async function initElementSdk() {
-      if (!window.elementSdk) return;
+      function copyAndShare(platform) {
+        const shareText = `Join me on Google Meet: ${currentMeetCode}`;
 
-      const defaultConfig = currentConfig;
-
-      window.elementSdk.init({
-        defaultConfig,
-        onConfigChange: async (config) => {
-          currentConfig = config;
-          updateUIWithConfig(config);
-        },
-        mapToCapabilities: (config) => ({
-          recolorables: [],
-          borderables: [],
-          fontEditable: undefined,
-          fontSizeable: undefined
-        }),
-        mapToEditPanelValues: (config) => new Map([
-          ["company_name", config.company_name || defaultConfig.company_name],
-          ["company_tagline", config.company_tagline || defaultConfig.company_tagline],
-          ["owner_name", config.owner_name || defaultConfig.owner_name],
-          ["contact_email", config.contact_email || defaultConfig.contact_email],
-          ["contact_phone", config.contact_phone || defaultConfig.contact_phone],
-          ["contact_address", config.contact_address || defaultConfig.contact_address]
-        ])
-      });
-    }
-
-    function updateUIWithConfig(config) {
-      document.getElementById('nav-company-name').textContent = config.company_name || currentConfig.company_name;
-      document.getElementById('contact-email-display').textContent = config.contact_email || currentConfig.contact_email;
-      document.getElementById('contact-phone-display').textContent = config.contact_phone || currentConfig.contact_phone;
-      document.getElementById('contact-address-display').textContent = config.contact_address || currentConfig.contact_address;
-      document.getElementById('footer-company').textContent = config.company_name || currentConfig.company_name;
-      document.getElementById('card-company-name').textContent = config.company_name || currentConfig.company_name;
-      document.getElementById('card-tagline').textContent = config.company_tagline || currentConfig.company_tagline;
-      document.getElementById('card-owner').textContent = config.owner_name || currentConfig.owner_name;
-      document.getElementById('card-email').textContent = config.contact_email || currentConfig.contact_email;
-      document.getElementById('card-phone').textContent = config.contact_phone || currentConfig.contact_phone;
-      document.getElementById('card-home-company').textContent = config.company_name || currentConfig.company_name;
-      document.getElementById('card-home-tagline').textContent = config.company_tagline || currentConfig.company_tagline;
-      document.getElementById('card-home-email').textContent = config.contact_email || currentConfig.contact_email;
-      document.getElementById('card-home-phone').textContent = config.contact_phone || currentConfig.contact_phone;
-      document.getElementById('card-home-owner').textContent = config.owner_name || currentConfig.owner_name;
-      document.getElementById('card-home-address').textContent = config.contact_address || currentConfig.contact_address;
-      document.getElementById('owner-name').textContent = config.owner_name || currentConfig.owner_name;
-    }
-
-    async function initDataSdk() {
-      if (!window.dataSdk) return;
-
-      const dataHandler = {
-        onDataChanged(data) {
-          allMessages = data.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
-          renderMessages();
+        switch (platform) {
+          case "whatsapp":
+            window.open(
+              `https://wa.me/?text=${encodeURIComponent(shareText)}`,
+              "_blank",
+            );
+            showNotification(
+              "Sharing to WhatsApp",
+              "Opening WhatsApp...",
+              "info",
+            );
+            break;
+          case "email":
+            window.open(
+              `mailto:?subject=Join My Google Meet&body=${encodeURIComponent(shareText)}`,
+              "_blank",
+            );
+            showNotification(
+              "Sharing via Email",
+              "Opening email client...",
+              "info",
+            );
+            break;
+          case "sms":
+            window.open(`sms:?body=${encodeURIComponent(shareText)}`, "_blank");
+            showNotification("Sharing via SMS", "Opening SMS...", "info");
+            break;
         }
-      };
-
-      await window.dataSdk.init(dataHandler);
-    }
-
-    window.addEventListener('DOMContentLoaded', async () => {
-      await initElementSdk();
-      await initDataSdk();
-      updateVisitorCount();
-      updateDateTime();
-      updateNotificationBell();
-      setInterval(updateDateTime, 1000);
-    });
-
-    async function handleContactSubmit(e) {
-      e.preventDefault();
-
-      const name = document.getElementById('form-name').value;
-      const email = document.getElementById('form-email').value;
-      const phone = document.getElementById('form-phone').value;
-      const message = document.getElementById('form-message').value;
-
-      if (!window.dataSdk) {
-        showNotification('⚠️ Error', 'Data storage unavailable', 'error');
-        return;
       }
 
-      const result = await window.dataSdk.create({
-        id: Date.now().toString(),
-        name,
-        email,
-        phone,
-        company: "N/A",
-        service: "General Inquiry",
-        message,
-        created_at: new Date().toISOString()
+      function updateVisitorCount() {
+        localStorage.setItem("visitorCount", visitorCount);
+        document.getElementById("visitor-count").textContent = visitorCount;
+      }
+
+      function updateDateTime() {
+        const now = new Date();
+        const istTime = new Date(
+          now.toLocaleString("en-US", { timeZone: "Asia/Kolkata" }),
+        );
+        istTime.setFullYear(2026);
+        const options = {
+          weekday: "long",
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+        };
+        const dateTimeStr = istTime.toLocaleDateString("en-US", options);
+        document.getElementById("datetime-display").textContent = dateTimeStr;
+        document.getElementById("footer-year").textContent = "2026";
+      }
+
+      async function initElementSdk() {
+        if (!window.elementSdk) return;
+
+        const defaultConfig = currentConfig;
+
+        window.elementSdk.init({
+          defaultConfig,
+          onConfigChange: async (config) => {
+            currentConfig = config;
+            updateUIWithConfig(config);
+          },
+          mapToCapabilities: (config) => ({
+            recolorables: [],
+            borderables: [],
+            fontEditable: undefined,
+            fontSizeable: undefined,
+          }),
+          mapToEditPanelValues: (config) =>
+            new Map([
+              [
+                "company_name",
+                config.company_name || defaultConfig.company_name,
+              ],
+              [
+                "company_tagline",
+                config.company_tagline || defaultConfig.company_tagline,
+              ],
+              ["owner_name", config.owner_name || defaultConfig.owner_name],
+              [
+                "contact_email",
+                config.contact_email || defaultConfig.contact_email,
+              ],
+              [
+                "contact_phone",
+                config.contact_phone || defaultConfig.contact_phone,
+              ],
+              [
+                "contact_address",
+                config.contact_address || defaultConfig.contact_address,
+              ],
+            ]),
+        });
+      }
+
+      function updateUIWithConfig(config) {
+        document.getElementById("nav-company-name").textContent =
+          config.company_name || currentConfig.company_name;
+        document.getElementById("contact-email-display").textContent =
+          config.contact_email || currentConfig.contact_email;
+        document.getElementById("contact-phone-display").textContent =
+          config.contact_phone || currentConfig.contact_phone;
+        document.getElementById("contact-address-display").textContent =
+          config.contact_address || currentConfig.contact_address;
+        document.getElementById("footer-company").textContent =
+          config.company_name || currentConfig.company_name;
+        document.getElementById("card-company-name").textContent =
+          config.company_name || currentConfig.company_name;
+        document.getElementById("card-tagline").textContent =
+          config.company_tagline || currentConfig.company_tagline;
+        document.getElementById("card-owner").textContent =
+          config.owner_name || currentConfig.owner_name;
+        document.getElementById("card-email").textContent =
+          config.contact_email || currentConfig.contact_email;
+        document.getElementById("card-phone").textContent =
+          config.contact_phone || currentConfig.contact_phone;
+        document.getElementById("card-home-company").textContent =
+          config.company_name || currentConfig.company_name;
+        document.getElementById("card-home-tagline").textContent =
+          config.company_tagline || currentConfig.company_tagline;
+        document.getElementById("card-home-email").textContent =
+          config.contact_email || currentConfig.contact_email;
+        document.getElementById("card-home-phone").textContent =
+          config.contact_phone || currentConfig.contact_phone;
+        document.getElementById("card-home-owner").textContent =
+          config.owner_name || currentConfig.owner_name;
+        document.getElementById("card-home-address").textContent =
+          config.contact_address || currentConfig.contact_address;
+        document.getElementById("owner-name").textContent =
+          config.owner_name || currentConfig.owner_name;
+      }
+
+      async function initDataSdk() {
+        if (!window.dataSdk) return;
+
+        const dataHandler = {
+          onDataChanged(data) {
+            allMessages = data.sort(
+              (a, b) => new Date(b.created_at) - new Date(a.created_at),
+            );
+            renderMessages();
+          },
+        };
+
+        await window.dataSdk.init(dataHandler);
+      }
+
+      window.addEventListener("DOMContentLoaded", async () => {
+        await initElementSdk();
+        await initDataSdk();
+        updateVisitorCount();
+        updateDateTime();
+        updateNotificationBell();
+        setInterval(updateDateTime, 1000);
       });
 
-      if (result.isOk) {
-        document.getElementById('contact-form').reset();
-        const msgDisplay = document.getElementById('form-message-display');
-        msgDisplay.textContent = 'Message sent successfully!';
-        msgDisplay.classList.remove('hidden');
-        showNotification('✓ Message Sent!', `Thank you ${name}, we will contact you soon!`, 'success');
-        setTimeout(() => msgDisplay.classList.add('hidden'), 3000);
-      }
-    }
+      async function handleContactSubmit(e) {
+        e.preventDefault();
 
-    async function handleRegistration(e) {
-      e.preventDefault();
+        const name = document.getElementById("form-name").value;
+        const email = document.getElementById("form-email").value;
+        const phone = document.getElementById("form-phone").value;
+        const message = document.getElementById("form-message").value;
 
-      const name = document.getElementById('reg-name').value;
-      const email = document.getElementById('reg-email').value;
-      const phone = document.getElementById('reg-phone').value;
-      const company = document.getElementById('reg-company').value;
-      const service = document.getElementById('reg-service').value;
+        // EMAIL SEND (EmailJS)
+        emailjs
+          .send("service_ic4jd1m", "template_x2xvcij", {
+            name: name,
+            email: email,
+            phone: phone,
+            message: message,
+          })
+          .then(
+            function (response) {
+              // GOOGLE SHEET (Excel Save)
+              fetch(
+                "https://script.google.com/macros/s/AKfycbzI6BzXqdMJm6_9EllSojaKDtHj1IDwNMC39YlK0OFdToCDU7Ft-J50cJQOAp3KgJ42/exec",
+                {
+                  method: "POST",
+                  body: JSON.stringify({
+                    name: name,
+                    email: email,
+                    phone: phone,
+                    message: message,
+                  }),
+                },
+              );
 
-      if (!window.dataSdk) {
-        showNotification('⚠️ Error', 'Data storage unavailable', 'error');
-        return;
-      }
-
-      const result = await window.dataSdk.create({
-        id: Date.now().toString(),
-        name,
-        email,
-        phone,
-        company,
-        service,
-        message: "Service Registration",
-        created_at: new Date().toISOString()
-      });
-
-      if (result.isOk) {
-        document.getElementById('registration-form').reset();
-        const msgDisplay = document.getElementById('reg-message');
-        msgDisplay.textContent = 'Registration successful!';
-        msgDisplay.classList.remove('hidden');
-        showNotification('✓ Registered!', `Welcome to ${service} service!`, 'success');
-        setTimeout(() => {
-          msgDisplay.classList.add('hidden');
-          closeRegistrationModal();
-        }, 2000);
-      }
-    }
-
-    function renderMessages() {
-      const container = document.getElementById('messages-container');
-      
-      if (allMessages.length === 0) {
-        container.innerHTML = '<div class="text-center text-slate-500 col-span-full py-8">No inquiries yet</div>';
-        return;
+              document.getElementById("contact-form").reset();
+              showNotification(
+                "✓ Message Sent!",
+                `Thank you ${name}, we will contact you soon!`,
+                "success",
+              );
+            },
+            function (error) {
+              showNotification("Error", "Email not sent", "error");
+            },
+          );
       }
 
-      container.innerHTML = allMessages.slice(0, 6).map(msg => `
+      async function handleRegistration(e) {
+        e.preventDefault();
+
+        const name = document.getElementById("reg-name").value;
+        const email = document.getElementById("reg-email").value;
+        const phone = document.getElementById("reg-phone").value;
+        const company = document.getElementById("reg-company").value;
+        const service = document.getElementById("reg-service").value;
+
+        if (!window.dataSdk) {
+          showNotification("⚠️ Error", "Data storage unavailable", "error");
+          return;
+        }
+
+        const result = await window.dataSdk.create({
+          id: Date.now().toString(),
+          name,
+          email,
+          phone,
+          company,
+          service,
+          message: "Service Registration",
+          created_at: new Date().toISOString(),
+        });
+
+        if (result.isOk) {
+          document.getElementById("registration-form").reset();
+          const msgDisplay = document.getElementById("reg-message");
+          msgDisplay.textContent = "Registration successful!";
+          msgDisplay.classList.remove("hidden");
+          showNotification(
+            "✓ Registered!",
+            `Welcome to ${service} service!`,
+            "success",
+          );
+          setTimeout(() => {
+            msgDisplay.classList.add("hidden");
+            closeRegistrationModal();
+          }, 2000);
+        }
+      }
+
+      function renderMessages() {
+        const container = document.getElementById("messages-container");
+
+        if (allMessages.length === 0) {
+          container.innerHTML =
+            '<div class="text-center text-slate-500 col-span-full py-8">No inquiries yet</div>';
+          return;
+        }
+
+        container.innerHTML = allMessages
+          .slice(0, 6)
+          .map(
+            (msg) => `
         <div class="bg-gradient-to-br from-red-50 to-orange-50 p-6 rounded-xl border-2 border-red-100">
           <h4 class="font-bold text-slate-900 mb-2">${msg.name}</h4>
           <p class="text-sm text-slate-600 mb-2">${msg.email}</p>
           <p class="text-sm text-slate-700 mb-2 font-semibold text-red-600">${msg.service}</p>
-          <p class="text-xs text-slate-500">${new Date(msg.created_at).toLocaleDateString('en-IN')}</p>
+          <p class="text-xs text-slate-500">${new Date(msg.created_at).toLocaleDateString("en-IN")}</p>
         </div>
-      `).join('');
-    }
+      `,
+          )
+          .join("");
+      }
 
-    function openGoogleMeetModal() {
-      document.getElementById('google-meet-modal').classList.remove('hidden');
-      document.getElementById('meet-code-section').classList.add('hidden');
-    }
+      function openGoogleMeetModal() {
+        document.getElementById("google-meet-modal").classList.remove("hidden");
+        document.getElementById("meet-code-section").classList.add("hidden");
+      }
 
-    function closeGoogleMeetModal() {
-      document.getElementById('google-meet-modal').classList.add('hidden');
-    }
+      function closeGoogleMeetModal() {
+        document.getElementById("google-meet-modal").classList.add("hidden");
+      }
 
-    function openVisitingCardModal() {
-      document.getElementById('visiting-card-modal').classList.remove('hidden');
-    }
+      function openVisitingCardModal() {
+        document
+          .getElementById("visiting-card-modal")
+          .classList.remove("hidden");
+      }
 
-    function closeVisitingCardModal() {
-      document.getElementById('visiting-card-modal').classList.add('hidden');
-    }
+      function closeVisitingCardModal() {
+        document.getElementById("visiting-card-modal").classList.add("hidden");
+      }
 
-    function openRegistrationModal() {
-      document.getElementById('registration-modal').classList.remove('hidden');
-    }
+      function openRegistrationModal() {
+        document
+          .getElementById("registration-modal")
+          .classList.remove("hidden");
+      }
 
-    function closeRegistrationModal() {
-      document.getElementById('registration-modal').classList.add('hidden');
-    }
+      function closeRegistrationModal() {
+        document.getElementById("registration-modal").classList.add("hidden");
+      }
 
-    async function downloadVisitingCardPDF() {
-      const element = document.getElementById('visiting-card-content');
-      const opt = {
-        margin: 10,
-        filename: 'Gopshila-Business-Card.pdf',
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2 },
-        jsPDF: { orientation: 'landscape', unit: 'mm', format: [90, 50] }
-      };
-      html2pdf().set(opt).from(element).save();
-      showNotification('📥 Downloading', 'Business card PDF downloading...', 'info');
-    }
+      async function downloadVisitingCardPDF() {
+        const element = document.getElementById("visiting-card-content");
+        const opt = {
+          margin: 10,
+          filename: "Gopshila-Business-Card.pdf",
+          image: { type: "jpeg", quality: 0.98 },
+          html2canvas: { scale: 2 },
+          jsPDF: { orientation: "landscape", unit: "mm", format: [90, 50] },
+        };
+        html2pdf().set(opt).from(element).save();
+        showNotification(
+          "📥 Downloading",
+          "Business card PDF downloading...",
+          "info",
+        );
+      }
 
-    document.getElementById('mobile-menu-btn').addEventListener('click', () => {
-      const menu = document.getElementById('mobile-menu');
-      menu.classList.toggle('hidden');
-    });
+      document
+        .getElementById("mobile-menu-btn")
+        .addEventListener("click", () => {
+          const menu = document.getElementById("mobile-menu");
+          menu.classList.toggle("hidden");
+        });
 
-    document.querySelectorAll('#mobile-menu a, #mobile-menu button').forEach(link => {
-      link.addEventListener('click', () => {
-        document.getElementById('mobile-menu').classList.add('hidden');
-      });
-    });
+      document
+        .querySelectorAll("#mobile-menu a, #mobile-menu button")
+        .forEach((link) => {
+          link.addEventListener("click", () => {
+            document.getElementById("mobile-menu").classList.add("hidden");
+          });
+        });
 
-    document.getElementById('google-meet-modal').addEventListener('click', (e) => {
-      if (e.target.id === 'google-meet-modal') closeGoogleMeetModal();
-    });
+      document
+        .getElementById("google-meet-modal")
+        .addEventListener("click", (e) => {
+          if (e.target.id === "google-meet-modal") closeGoogleMeetModal();
+        });
 
-    document.getElementById('visiting-card-modal').addEventListener('click', (e) => {
-      if (e.target.id === 'visiting-card-modal') closeVisitingCardModal();
-    });
+      document
+        .getElementById("visiting-card-modal")
+        .addEventListener("click", (e) => {
+          if (e.target.id === "visiting-card-modal") closeVisitingCardModal();
+        });
 
-    document.getElementById('registration-modal').addEventListener('click', (e) => {
-      if (e.target.id === 'registration-modal') closeRegistrationModal();
-    });
-  </script>
+      document
+        .getElementById("registration-modal")
+        .addEventListener("click", (e) => {
+          if (e.target.id === "registration-modal") closeRegistrationModal();
+        });
+    </script>
 
-  <script>
-async function downloadVisitingCardPDF() {
-  const { jsPDF } = window.jspdf;
+    <script>
+      async function downloadVisitingCardPDF() {
+        const { jsPDF } = window.jspdf;
 
-  const card = document.getElementById("visiting-card-content");
+        const card = document.getElementById("visiting-card-content");
 
-  // Create high quality canvas
-  const canvas = await html2canvas(card, {
-    scale: 4,                 // HD quality
-    useCORS: true,
-    backgroundColor: null
-  });
+        // Create high quality canvas
+        const canvas = await html2canvas(card, {
+          scale: 4, // HD quality
+          useCORS: true,
+          backgroundColor: null,
+        });
 
-  const imgData = canvas.toDataURL("image/png");
+        const imgData = canvas.toDataURL("image/png");
 
-  // Card ratio 3.5:2 → landscape PDF
-  const pdfWidth = 370;  // custom size for business card look
-  const pdfHeight = 200;
+        // Card ratio 3.5:2 → landscape PDF
+        const pdfWidth = 370; // custom size for business card look
+        const pdfHeight = 200;
 
-  const pdf = new jsPDF({
-    orientation: "landscape",
-    unit: "mm",
-    format: [pdfWidth, pdfHeight]
-  });
+        const pdf = new jsPDF({
+          orientation: "landscape",
+          unit: "mm",
+          format: [pdfWidth, pdfHeight],
+        });
 
-  pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
-  pdf.save("Gopshila_Visiting_Card.pdf");
-}
-</script>
+        pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
+        pdf.save("Gopshila_Visiting_Card.pdf");
+      }
+    </script>
 
-
-
-
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9ceaa7c933dc3501',t:'MTc3MTIxOTg1Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+    <script>
+      (function () {
+        function c() {
+          var b = a.contentDocument || a.contentWindow.document;
+          if (b) {
+            var d = b.createElement("script");
+            d.innerHTML =
+              "window.__CF$cv$params={r:'9ceaa7c933dc3501',t:'MTc3MTIxOTg1Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+            b.getElementsByTagName("head")[0].appendChild(d);
+          }
+        }
+        if (document.body) {
+          var a = document.createElement("iframe");
+          a.height = 1;
+          a.width = 1;
+          a.style.position = "absolute";
+          a.style.top = 0;
+          a.style.left = 0;
+          a.style.border = "none";
+          a.style.visibility = "hidden";
+          document.body.appendChild(a);
+          if ("loading" !== document.readyState) c();
+          else if (window.addEventListener)
+            document.addEventListener("DOMContentLoaded", c);
+          else {
+            var e = document.onreadystatechange || function () {};
+            document.onreadystatechange = function (b) {
+              e(b);
+              "loading" !== document.readyState &&
+                ((document.onreadystatechange = e), c());
+            };
+          }
+        }
+      })();
+    </script>
+  </body>
 </html>
