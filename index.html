@@ -287,8 +287,6 @@
           background-size: 300px 300px;
           background-position: right -30px bottom -30px;
         }
-        
-
       }
     </style>
     <style>
@@ -1404,85 +1402,62 @@
           >
             Business Card
           </h3>
-          <div class="w-full max-w-[700px] mx-auto px-3 sm:px-0">
-
-  <div
-    id="visiting-card-content"
-    class="bg-gradient-to-br from-slate-900 via-red-900 to-orange-800 text-white 
-           p-5 sm:p-8 md:p-12 
-           rounded-xl mb-8 
-           border-4 border-orange-500 
-           relative overflow-hidden"
-
-    style="aspect-ratio: 3.5/2;"
-  >
-
-    <!-- Shine Effect -->
-    <div class="card-shine absolute inset-0 opacity-30"></div>
-
-    <div class="relative h-full flex flex-col justify-between z-10">
-
-      <!-- TOP -->
-      <div>
-        <div class="flex items-center gap-2 mb-2">
-          <img
-            src="https://i.ibb.co/XZ5YBBnc/pkb.png"
-            alt="Logo"
-            class="h-6 sm:h-8 md:h-10 w-auto object-contain"
-          />
-
-          <h2
-            id="card-company-name"
-            class="text-lg sm:text-2xl md:text-3xl font-bold leading-tight"
+          <div
+            id="visiting-card-content"
+            class="bg-gradient-to-br from-slate-900 via-red-900 to-orange-800 text-white p-8 sm:p-12 rounded-xl mb-8 border-4 border-orange-500"
+            style="aspect-ratio: 3.5/2; position: relative; overflow: hidden"
           >
-            GOPSHILA ENTERPRISES
-          </h2>
-        </div>
-
-        <p id="card-tagline"
-           class="text-orange-200 text-[10px] sm:text-xs md:text-sm">
-          Professional Excellence & Innovation
-        </p>
-      </div>
-
-      <!-- CENTER -->
-      <div
-        class="border-t-2 border-b-2 border-orange-400 
-               py-3 sm:py-4 space-y-2"
-      >
-        <div>
-          <span class="text-orange-200 text-[10px] sm:text-xs">Owner:</span>
-          <span id="card-owner"
-                class="font-semibold block text-xs sm:text-sm md:text-base">
-            Priyanshu Kamble
-          </span>
-        </div>
-
-        <div class="flex justify-between text-[11px] sm:text-sm">
-          <span class="text-orange-200">Email:</span>
-          <span id="card-email" class="font-semibold break-all">
-            PRIYANSHUKAMBLE2006@GMAIL.COM
-          </span>
-        </div>
-
-        <div class="flex justify-between text-[11px] sm:text-sm">
-          <span class="text-orange-200">Phone:</span>
-          <span id="card-phone" class="font-semibold">
-            +91 9130344312
-          </span>
-        </div>
-      </div>
-
-      <!-- BOTTOM -->
-      <div>
-        <p class="text-orange-100 text-[10px] sm:text-xs md:text-sm">
-          Ramtek & Kanhan, Nagpur-441404
-        </p>
-      </div>
-
-    </div>
-  </div>
-</div>
+            <div class="card-shine"></div>
+            <div class="relative h-full flex flex-col justify-between z-10">
+              <div>
+                <div class="flex items-center gap-2 mb-2">
+                  <img
+                    src="https://i.ibb.co/XZ5YBBnc/pkb.png"
+                    alt="Logo"
+                    class="h-8 w-auto object-contain"
+                    loading="lazy"
+                    onerror="console.error('Logo failed:', this.src)"
+                  />
+                  <h2
+                    id="card-company-name"
+                    class="text-2xl sm:text-3xl font-bold"
+                  >
+                    GOPSHILA ENTERPRISES
+                  </h2>
+                </div>
+                <p id="card-tagline" class="text-orange-200 text-xs sm:text-sm">
+                  Professional Excellence &amp; Innovation
+                </p>
+              </div>
+              <div
+                class="border-t-2 border-b-2 border-orange-400 py-4 space-y-2"
+              >
+                <div>
+                  <span class="text-orange-200 text-xs">Owner:</span>
+                  <span id="card-owner" class="font-semibold block text-sm"
+                    >Priyanshu Kamble</span
+                  >
+                </div>
+                <div class="flex justify-between text-xs sm:text-sm">
+                  <span class="text-orange-200">Email:</span>
+                  <span id="card-email" class="font-semibold"
+                    >PRIYANSHUKAMBLE2006@GMAIL.COM</span
+                  >
+                </div>
+                <div class="flex justify-between text-xs sm:text-sm">
+                  <span class="text-orange-200">Phone:</span>
+                  <span id="card-phone" class="font-semibold"
+                    >+91 9130344312</span
+                  >
+                </div>
+              </div>
+              <div>
+                <p class="text-orange-100 text-xs">
+                  Ramtek &amp; Kanhan, Nagpur-441404
+                </p>
+              </div>
+            </div>
+          </div>
 
           <div class="flex gap-4 flex-col sm:flex-row">
             <button
@@ -1597,8 +1572,34 @@
               Register
             </button> -->
 
-            <div><h3 style="display: flex; align-items: center; justify-content: center; padding: 15px 15px; background-color: #dbb8b8; border-radius: 8px;">Coming Soon</h3><br><p><b>Contact:-</b> <a href="contactto:9130344312">9130344312</a></p><br><p><b>Email:-</b> <a href="mailto:priyanshukamble2006@gmail.com" style="color: blue;">priyanshukamble2006@gmail.com</a></p></div>
-          
+            <div>
+              <h3
+                style="
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  padding: 15px 15px;
+                  background-color: #dbb8b8;
+                  border-radius: 8px;
+                "
+              >
+                Coming Soon
+              </h3>
+              <br />
+              <p>
+                <b>Contact:-</b> <a href="contactto:9130344312">9130344312</a>
+              </p>
+              <br />
+              <p>
+                <b>Email:-</b>
+                <a
+                  href="mailto:priyanshukamble2006@gmail.com"
+                  style="color: blue"
+                  >priyanshukamble2006@gmail.com</a
+                >
+              </p>
+            </div>
+
             <button
               type="button"
               onclick="closeRegistrationModal()"
