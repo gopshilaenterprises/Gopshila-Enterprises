@@ -18,6 +18,12 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Playfair+Display:wght@600;700;800&amp;display=swap"
       rel="stylesheet"
@@ -294,12 +300,128 @@
         box-sizing: border-box;
       }
     </style>
+
+    <style>
+      /* Smooth open animation */
+      @keyframes slideUp {
+        0% {
+          transform: translateY(40px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      .chat-open {
+        animation: slideUp 0.35s ease forwards;
+      }
+
+      /* Typing animation */
+      .typing span {
+        animation: blink 1.4s infinite both;
+        font-size: 20px;
+      }
+      .typing span:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+      .typing span:nth-child(3) {
+        animation-delay: 0.4s;
+      }
+
+      @keyframes blink {
+        0% {
+          opacity: 0.2;
+        }
+        20% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0.2;
+        }
+      }
+    </style>
   </head>
   <body class="h-full bg-white">
     <div
       id="app"
       class="h-full w-full overflow-auto bg-gradient-to-b from-slate-50 to-red-50"
     >
+      <!-- Floating Button -->
+      <div
+        id="chatIcon"
+        onclick="toggleChat()"
+        class="fixed bottom-6 right-5 w-11 h-11 z-10 rounded-full bg-gradient-to-r from-red-400 to-red-600 flex items-center justify-center text-white text-2xl shadow-2xl cursor-pointer overflow-auto z-10 animate-pulse hover:scale-110 transition duration-300"
+      >
+        🤖
+      </div>
+
+      <!-- Chat Container -->
+      <div
+        id="chatBox"
+        class="hidden z-10 fixed bottom-24 right-6 w-[380px] max-w-[95%] h-[400px] backdrop-blur-xl bg-white/20 rounded-3xl shadow-2xl flex-col overflow-hidden"
+      >
+        <!-- Header -->
+        <div
+          class="bg-gradient-to-r from-red-600 to-red-500 text-white p-4 flex justify-between items-center"
+        >
+          <div class="flex items-center gap-3">
+            <div
+              class="w-10 h-10 rounded-full bg-white/30 flex items-center justify-center"
+            >
+              🤖
+            </div>
+
+            <div>
+              <div class="font-semibold text-lg">Gopshila Smart Assistant</div>
+              <div class="flex items-center text-xs">
+                <span
+                  class="w-2 h-2 bg-green-300 rounded-full mr-1 animate-pulse"
+                ></span>
+                Online
+              </div>
+            </div>
+          </div>
+
+          <button
+            onclick="toggleChat()"
+            class="text-white text-lg hover:scale-110 transition"
+          >
+            ✖
+          </button>
+        </div>
+
+        <!-- Messages -->
+        <div
+          id="messages"
+          class="flex-1 p-4 overflow-y-auto space-y-3 bg-white/10"
+        ></div>
+
+        <!-- Input -->
+        <div class="p-3 bg-gradient-to-r from-red-50 to-red-50 flex gap-2">
+          <input
+            id="input"
+            type="text"
+            placeholder="Type your message..."
+            class="flex-1 px-4 py-2 rounded-full outline-none bg-white/80 text-sm"
+          />
+
+          <button
+            onclick="sendMessage()"
+            class="bg-red-200 text-red p-2 rounded-full hover:scale-110 transition"
+          >
+            ⮞
+          </button>
+
+          <button
+            onclick="startVoice()"
+            class="bg-black-400 text-white p-2 rounded-full hover:scale-110 transition"
+          >
+            🎙️
+          </button>
+        </div>
+      </div>
       <!-- Welcome Popup -->
       <div
         id="welcome-popup"
@@ -1617,8 +1739,164 @@
     </div>
 
     <script>
+      emailjs.init("vJzO1Rx_v5Nt8x_MI");
+      const API_KEY = "AIzaSyACqJshHRVKsbvPGugaGBa00QjSTPYGleg";
+
+      let userCaptured = false;
+      let userData = {};
+
+      // Toggle Chat
+      function toggleChat() {
+        let box = document.getElementById("chatBox");
+        if (box.classList.contains("hidden")) {
+          box.classList.remove("hidden");
+          box.classList.add("flex", "chat-open");
+          if (!userCaptured) {
+            setTimeout(
+              () =>
+                addMessage(
+                  "Hello 👋 Welcome to GOPSHILA ENTERPRISES.\nPlease type 'Hi' to continue.",
+                  "bot",
+                ),
+              400,
+            );
+          }
+        } else {
+          box.classList.add("hidden");
+          box.classList.remove("flex");
+        }
+      }
+
+      // Add Message
+      function addMessage(text, type) {
+        let div = document.createElement("div");
+        div.className = "px-4 py-2 rounded-2xl text-sm max-w-[75%] shadow";
+
+        if (type === "user") {
+          div.classList.add("bg-green-200", "ml-auto");
+        } else {
+          div.classList.add("bg-white");
+        }
+
+        div.innerText = text;
+        document.getElementById("messages").appendChild(div);
+        document.getElementById("messages").scrollTop = 999999;
+      }
+
+      // Typing
+      function showTyping() {
+        let div = document.createElement("div");
+        div.id = "typing";
+        div.className = "bg-white px-4 py-2 rounded-2xl w-16 typing";
+        div.innerHTML = "<span>.</span><span>.</span><span>.</span>";
+        document.getElementById("messages").appendChild(div);
+      }
+
+      function removeTyping() {
+        let t = document.getElementById("typing");
+        if (t) t.remove();
+      }
+
+      // Send Message
+      async function sendMessage() {
+        let input = document.getElementById("input");
+        let message = input.value.trim();
+        if (!message) return;
+
+        addMessage(message, "user");
+        input.value = "";
+
+        if (!userCaptured && message.toLowerCase() === "hi") {
+          collectUser();
+          return;
+        }
+
+        showTyping();
+
+        try {
+          let response = await fetch(
+            `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${API_KEY}`,
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                contents: [
+                  {
+                    parts: [
+                      {
+                        text: `Reply professionally in Hindi, Marathi or English. User: ${message}`,
+                      },
+                    ],
+                  },
+                ],
+              }),
+            },
+          );
+
+          let data = await response.json();
+          removeTyping();
+
+          let reply =
+            data.candidates?.[0]?.content?.parts?.[0]?.text || "Server Error.";
+          addMessage(reply, "bot");
+        } catch (e) {
+          removeTyping();
+          addMessage("Network Error. Try again.", "bot");
+        }
+      }
+
+      // Collect User Details
+      function collectUser() {
+        userData.name = prompt("Enter Name:");
+        userData.email = prompt("Enter Email:");
+        userData.mobile = prompt("Enter Mobile:");
+
+        if (userData.name && userData.email && userData.mobile) {
+          userCaptured = true;
+
+          addMessage("Thank You " + userData.name + " 🙏", "bot");
+          addMessage(
+            "👤 PRIYANSHU KAMBLE\n🏢 GOPSHILA ENTERPRISES\n📞 9130344312\n📧 gopshilaenterprises@gmail.com",
+            "bot",
+          );
+
+          sendEmailNotification();
+        }
+      }
+
+      // Voice
+      function startVoice() {
+        let recognition = new (
+          window.SpeechRecognition || window.webkitSpeechRecognition
+        )();
+        recognition.lang = "en-IN";
+        recognition.start();
+        recognition.onresult = function (e) {
+          document.getElementById("input").value = e.results[0][0].transcript;
+          sendMessage();
+        };
+      }
+
+      // Enter key send
+      document
+        .getElementById("input")
+        .addEventListener("keypress", function (e) {
+          if (e.key === "Enter") sendMessage();
+        });
+
+      // Email
+      function sendEmailNotification() {
+        emailjs.send("service_y34po6m", "template_s4lxpz9", {
+          user_name: userData.name,
+          user_email: userData.email,
+          user_mobile: userData.mobile,
+        });
+      }
+    </script>
+
+    <script>
       (function () {
-        emailjs.init("DWOH3yLJmMla1AJOG");
+        emailjs.init("vJzO1Rx_v5Nt8x_MI");
       })();
     </script>
 
@@ -1953,7 +2231,7 @@
 
         // EMAIL SEND (EmailJS)
         emailjs
-          .send("service_ic4jd1m", "template_x2xvcij", {
+          .send("service_y34po6m", "template_s4lxpz9", {
             name: name,
             email: email,
             phone: phone,
