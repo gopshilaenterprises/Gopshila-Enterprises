@@ -1850,13 +1850,14 @@
         userData.name = prompt("Enter Name:");
         userData.email = prompt("Enter Email:");
         userData.mobile = prompt("Enter Mobile:");
+        userData.message = prompt("Enter message:");
 
-        if (userData.name && userData.email && userData.mobile) {
+        if (userData.name && userData.email && userData.mobile && userData.message) {
           userCaptured = true;
 
           addMessage("Thank You " + userData.name + " 🙏", "bot");
           addMessage(
-            "👤 PRIYANSHU KAMBLE\n🏢 GOPSHILA ENTERPRISES\n📞 9130344312\n📧 gopshilaenterprises@gmail.com",
+            "🏢 GOPSHILA ENTERPRISES\n👤 PRIYANSHU KAMBLE\n📞 9130344312\n📧 gopshilaenterprises@gmail.com",
             "bot",
           );
 
@@ -1887,9 +1888,10 @@
       // Email
       function sendEmailNotification() {
         emailjs.send("service_y34po6m", "template_s4lxpz9", {
-          user_name: userData.name,
-          user_email: userData.email,
-          user_mobile: userData.mobile,
+          name: userData.name,
+          email: userData.email,
+          mobile: userData.mobile,
+          message: userData.message,
         });
       }
     </script>
