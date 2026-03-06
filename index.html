@@ -1849,10 +1849,10 @@
       function collectUser() {
         userData.name = prompt("Enter Name:");
         userData.email = prompt("Enter Email:");
-        userData.mobile = prompt("Enter Mobile:");
+        userData.phone = prompt("Enter Mobile:");
         userData.message = prompt("Enter message:");
 
-        if (userData.name && userData.email && userData.mobile && userData.message) {
+        if (userData.name && userData.email && userData.phone && userData.message) {
           userCaptured = true;
 
           addMessage("Thank You " + userData.name + " 🙏", "bot");
@@ -1890,7 +1890,7 @@
         emailjs.send("service_y34po6m", "template_s4lxpz9", {
           name: userData.name,
           email: userData.email,
-          mobile: userData.mobile,
+          phone: userData.phone,
           message: userData.message,
         });
       }
@@ -2479,5 +2479,104 @@
         }
       })();
     </script>
+
+
+
+
+    <!--source code hiding -->
+
+    <script>
+
+// Disable Right Click
+document.addEventListener("contextmenu", function(e){
+e.preventDefault();
+showWarning();
+});
+
+// Disable Keyboard Shortcuts
+document.onkeydown = function(e){
+
+if(e.keyCode == 123) { // F12
+showWarning();
+return false;
+}
+
+if(e.ctrlKey && e.shiftKey && e.keyCode == 73){ // Ctrl+Shift+I
+showWarning();
+return false;
+}
+
+if(e.ctrlKey && e.shiftKey && e.keyCode == 74){ // Ctrl+Shift+J
+showWarning();
+return false;
+}
+
+if(e.ctrlKey && e.keyCode == 85){ // Ctrl+U
+showWarning();
+return false;
+}
+
+if(e.ctrlKey && e.keyCode == 67){ // Ctrl+C
+showWarning();
+return false;
+}
+
+};
+
+// DevTools detection
+setInterval(function(){
+
+const widthThreshold = window.outerWidth - window.innerWidth > 160;
+const heightThreshold = window.outerHeight - window.innerHeight > 160;
+
+if(widthThreshold || heightThreshold){
+showWarning();
+}
+
+},1000);
+
+
+// Warning Message
+
+function showWarning(){
+
+document.body.innerHTML = `
+<div style="
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+background:#000;
+color:#fff;
+font-family:sans-serif;
+text-align:center;
+padding:20px;
+">
+
+<h1 style="font-size:40px;margin-bottom:20px;">
+⚠ ACCESS DENIED
+</h1>
+
+<p style="font-size:18px;max-width:600px;">
+Inspect Element / Developer Tools detected.<br><br>
+
+This website is protected by security system.<br>
+Copying source code is strictly prohibited.
+</p>
+
+<p style="margin-top:20px;font-size:16px;color:#aaa;">
+<b>© Gopshila Enterprises </b><br>
+FOUNDER: PRIYANSHU KAMBLE <br>
+PHONE: 9130344312 <br>
+EMAIL: GOPSHILAENTERPRISES@GMAIL.COM
+</p>
+
+</div>
+`;
+
+}
+
+</script>
   </body>
 </html>
