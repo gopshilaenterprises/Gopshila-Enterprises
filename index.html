@@ -1961,18 +1961,21 @@ sendEmailNotification();
 function saveToSheet(){
 
 fetch(SHEET_API,{
-
 method:"POST",
-
 headers:{
-
 "Content-Type":"application/json"
-
 },
-
-body:JSON.stringify(userData)
-
-});
+body:JSON.stringify({
+customer_id:userData.customer_id,
+name:userData.name,
+email:userData.email,
+phone:userData.phone,
+message:userData.message
+})
+})
+.then(res=>res.json())
+.then(data=>console.log("Saved:",data))
+.catch(err=>console.log("Error:",err));
 
 }
 
