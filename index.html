@@ -1738,50 +1738,59 @@
       </div>
     </div>
 
-    <script>
+   <script>
 
 emailjs.init("vJzO1Rx_v5Nt8x_MI");
 
-const API_KEY = "AIzaSyACqJshHRVKsbvPGugaGBa00QjSTPYGleg";
+const API_KEY="YOUR_GEMINI_API_KEY";
 
-const SHEET_API="https://script.google.com/macros/s/AKfycbzho3XO3HHf2o2APBYsDuHVnGKwD_gA7wURyLL3R4G7OwyiY-ts850wctL2EvGgnvSS/exec"
+const SHEET_API="https://script.google.com/macros/s/AKfycbzho3XO3HHf2o2APBYsDuHVnGKwD_gA7wURyLL3R4G7OwyiY-ts850wctL2EvGgnvSS/exec";
 
 let userCaptured=false;
 let userData={};
 
 
-// Customer ID Generate
+// Generate Customer ID
 function generateCustomerID(){
-  let num=Math.floor(1000+Math.random()*9000);
-  return "CUS"+num;
+return "CUS"+Math.floor(1000+Math.random()*9000);
 }
+
 
 
 // Toggle Chat
 function toggleChat(){
+
 let box=document.getElementById("chatBox");
 
 if(box.classList.contains("hidden")){
+
 box.classList.remove("hidden");
 box.classList.add("flex","chat-open");
 
 if(!userCaptured){
-setTimeout(()=>addMessage(
-"Hello 👋 Welcome to GOPSHILA ENTERPRISES.\nPlease type 'Hi' to continue.",
-"bot"),400);
+
+setTimeout(()=>{
+addMessage("Hello 👋 Welcome to GOPSHILA ENTERPRISES.\nPlease type 'Hi' to continue.","bot");
+},400);
+
 }
 
 }else{
+
 box.classList.add("hidden");
 box.classList.remove("flex");
+
 }
+
 }
+
 
 
 // Add Message
 function addMessage(text,type){
 
 let div=document.createElement("div");
+
 div.className="px-4 py-2 rounded-2xl text-sm max-w-[75%] shadow";
 
 if(type==="user"){
@@ -1793,15 +1802,18 @@ div.classList.add("bg-white");
 div.innerText=text;
 
 document.getElementById("messages").appendChild(div);
+
 document.getElementById("messages").scrollTop=999999;
 
 }
+
 
 
 // Typing
 function showTyping(){
 
 let div=document.createElement("div");
+
 div.id="typing";
 
 div.className="bg-white px-4 py-2 rounded-2xl w-16 typing";
@@ -1812,9 +1824,14 @@ document.getElementById("messages").appendChild(div);
 
 }
 
+
+
 function removeTyping(){
+
 let t=document.getElementById("typing");
+
 if(t)t.remove();
+
 }
 
 
@@ -1823,6 +1840,7 @@ if(t)t.remove();
 async function sendMessage(){
 
 let input=document.getElementById("input");
+
 let message=input.value.trim();
 
 if(!message)return;
@@ -1833,28 +1851,48 @@ input.value="";
 
 
 if(!userCaptured && message.toLowerCase()==="hi"){
+
 collectUser();
+
 return;
+
 }
 
-
 showTyping();
+
 
 try{
 
 let response=await fetch(
+
 `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${API_KEY}`,
+
 {
+
 method:"POST",
-headers:{"Content-Type":"application/json"},
+
+headers:{
+
+"Content-Type":"application/json"
+
+},
+
 body:JSON.stringify({
+
 contents:[{
+
 parts:[{
+
 text:`Reply professionally in Hindi, Marathi or English. User: ${message}`
+
 }]
+
 }]
+
 })
+
 }
+
 );
 
 
@@ -1878,10 +1916,10 @@ addMessage("Network Error. Try again.","bot");
 
 
 
-// Collect User
+// Collect User Details
 function collectUser(){
 
-userData.customer_Id=generateCustomerID();
+userData.customer_id=generateCustomerID();
 
 userData.name=prompt("Enter Name:");
 
@@ -1898,11 +1936,14 @@ userCaptured=true;
 
 addMessage("Thank You "+userData.name+" 🙏","bot");
 
-addMessage("🆔 Customer ID: "+userData.customer_Id,"bot");
+addMessage("🆔 Customer ID: "+userData.customer_id,"bot");
 
 addMessage(
+
 "🏢 GOPSHILA ENTERPRISES\n👤 PRIYANSHU KAMBLE\n📞 9130344312\n📧 gopshilaenterprises@gmail.com",
+
 "bot"
+
 );
 
 
@@ -1916,22 +1957,31 @@ sendEmailNotification();
 
 
 
-// Save to Google Sheet
+// Save Data to Google Sheet
 function saveToSheet(){
 
 fetch(SHEET_API,{
+
 method:"POST",
+
+headers:{
+
+"Content-Type":"application/json"
+
+},
+
 body:JSON.stringify(userData)
+
 });
 
 }
 
 
 
-// Voice
+// Voice Input
 function startVoice(){
 
-let recognition=new(window.SpeechRecognition || window.webkitSpeechRecognition)();
+let recognition=new(window.SpeechRecognition||window.webkitSpeechRecognition)();
 
 recognition.lang="en-IN";
 
@@ -1949,7 +1999,7 @@ sendMessage();
 
 
 
-// Enter Key
+// Enter Key Send
 document.getElementById("input").addEventListener("keypress",function(e){
 
 if(e.key==="Enter")sendMessage();
@@ -1958,16 +2008,19 @@ if(e.key==="Enter")sendMessage();
 
 
 
-
-// Email
+// Send Email
 function sendEmailNotification(){
 
 emailjs.send("service_y34po6m","template_s4lxpz9",{
 
-customerId:userData.customer_Id,
+customer_id:userData.customer_id,
+
 name:userData.name,
+
 email:userData.email,
+
 phone:userData.phone,
+
 message:userData.message
 
 });
@@ -1975,7 +2028,6 @@ message:userData.message
 }
 
 </script>
-
 
 
     
