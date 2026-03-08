@@ -1739,162 +1739,246 @@
     </div>
 
     <script>
-      emailjs.init("vJzO1Rx_v5Nt8x_MI");
-      const API_KEY = "AIzaSyACqJshHRVKsbvPGugaGBa00QjSTPYGleg";
 
-      let userCaptured = false;
-      let userData = {};
+emailjs.init("vJzO1Rx_v5Nt8x_MI");
 
-      // Toggle Chat
-      function toggleChat() {
-        let box = document.getElementById("chatBox");
-        if (box.classList.contains("hidden")) {
-          box.classList.remove("hidden");
-          box.classList.add("flex", "chat-open");
-          if (!userCaptured) {
-            setTimeout(
-              () =>
-                addMessage(
-                  "Hello 👋 Welcome to GOPSHILA ENTERPRISES.\nPlease type 'Hi' to continue.",
-                  "bot",
-                ),
-              400,
-            );
-          }
-        } else {
-          box.classList.add("hidden");
-          box.classList.remove("flex");
-        }
-      }
+const API_KEY = "AIzaSyACqJshHRVKsbvPGugaGBa00QjSTPYGleg";
 
-      // Add Message
-      function addMessage(text, type) {
-        let div = document.createElement("div");
-        div.className = "px-4 py-2 rounded-2xl text-sm max-w-[75%] shadow";
+const SHEET_API="https://script.google.com/macros/s/AKfycbzho3XO3HHf2o2APBYsDuHVnGKwD_gA7wURyLL3R4G7OwyiY-ts850wctL2EvGgnvSS/exec"
 
-        if (type === "user") {
-          div.classList.add("bg-green-200", "ml-auto");
-        } else {
-          div.classList.add("bg-white");
-        }
+let userCaptured=false;
+let userData={};
 
-        div.innerText = text;
-        document.getElementById("messages").appendChild(div);
-        document.getElementById("messages").scrollTop = 999999;
-      }
 
-      // Typing
-      function showTyping() {
-        let div = document.createElement("div");
-        div.id = "typing";
-        div.className = "bg-white px-4 py-2 rounded-2xl w-16 typing";
-        div.innerHTML = "<span>.</span><span>.</span><span>.</span>";
-        document.getElementById("messages").appendChild(div);
-      }
+// Customer ID Generate
+function generateCustomerID(){
+  let num=Math.floor(1000+Math.random()*9000);
+  return "CUS"+num;
+}
 
-      function removeTyping() {
-        let t = document.getElementById("typing");
-        if (t) t.remove();
-      }
 
-      // Send Message
-      async function sendMessage() {
-        let input = document.getElementById("input");
-        let message = input.value.trim();
-        if (!message) return;
+// Toggle Chat
+function toggleChat(){
+let box=document.getElementById("chatBox");
 
-        addMessage(message, "user");
-        input.value = "";
+if(box.classList.contains("hidden")){
+box.classList.remove("hidden");
+box.classList.add("flex","chat-open");
 
-        if (!userCaptured && message.toLowerCase() === "hi") {
-          collectUser();
-          return;
-        }
+if(!userCaptured){
+setTimeout(()=>addMessage(
+"Hello 👋 Welcome to GOPSHILA ENTERPRISES.\nPlease type 'Hi' to continue.",
+"bot"),400);
+}
 
-        showTyping();
+}else{
+box.classList.add("hidden");
+box.classList.remove("flex");
+}
+}
 
-        try {
-          let response = await fetch(
-            `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${API_KEY}`,
-            {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({
-                contents: [
-                  {
-                    parts: [
-                      {
-                        text: `Reply professionally in Hindi, Marathi or English. User: ${message}`,
-                      },
-                    ],
-                  },
-                ],
-              }),
-            },
-          );
 
-          let data = await response.json();
-          removeTyping();
+// Add Message
+function addMessage(text,type){
 
-          let reply =
-            data.candidates?.[0]?.content?.parts?.[0]?.text || "Server Error.";
-          addMessage(reply, "bot");
-        } catch (e) {
-          removeTyping();
-          addMessage("Network Error. Try again.", "bot");
-        }
-      }
+let div=document.createElement("div");
+div.className="px-4 py-2 rounded-2xl text-sm max-w-[75%] shadow";
 
-      // Collect User Details
-      function collectUser() {
-        userData.name = prompt("Enter Name:");
-        userData.email = prompt("Enter Email:");
-        userData.phone = prompt("Enter Mobile:");
-        userData.message = prompt("Enter message:");
+if(type==="user"){
+div.classList.add("bg-green-200","ml-auto");
+}else{
+div.classList.add("bg-white");
+}
 
-        if (userData.name && userData.email && userData.phone && userData.message) {
-          userCaptured = true;
+div.innerText=text;
 
-          addMessage("Thank You " + userData.name + " 🙏", "bot");
-          addMessage(
-            "🏢 GOPSHILA ENTERPRISES\n👤 PRIYANSHU KAMBLE\n📞 9130344312\n📧 gopshilaenterprises@gmail.com",
-            "bot",
-          );
+document.getElementById("messages").appendChild(div);
+document.getElementById("messages").scrollTop=999999;
 
-          sendEmailNotification();
-        }
-      }
+}
 
-      // Voice
-      function startVoice() {
-        let recognition = new (
-          window.SpeechRecognition || window.webkitSpeechRecognition
-        )();
-        recognition.lang = "en-IN";
-        recognition.start();
-        recognition.onresult = function (e) {
-          document.getElementById("input").value = e.results[0][0].transcript;
-          sendMessage();
-        };
-      }
 
-      // Enter key send
-      document
-        .getElementById("input")
-        .addEventListener("keypress", function (e) {
-          if (e.key === "Enter") sendMessage();
-        });
+// Typing
+function showTyping(){
 
-      // Email
-      function sendEmailNotification() {
-        emailjs.send("service_y34po6m", "template_s4lxpz9", {
-          name: userData.name,
-          email: userData.email,
-          phone: userData.phone,
-          message: userData.message,
-        });
-      }
-    </script>
+let div=document.createElement("div");
+div.id="typing";
+
+div.className="bg-white px-4 py-2 rounded-2xl w-16 typing";
+
+div.innerHTML="<span>.</span><span>.</span><span>.</span>";
+
+document.getElementById("messages").appendChild(div);
+
+}
+
+function removeTyping(){
+let t=document.getElementById("typing");
+if(t)t.remove();
+}
+
+
+
+// Send Message
+async function sendMessage(){
+
+let input=document.getElementById("input");
+let message=input.value.trim();
+
+if(!message)return;
+
+addMessage(message,"user");
+
+input.value="";
+
+
+if(!userCaptured && message.toLowerCase()==="hi"){
+collectUser();
+return;
+}
+
+
+showTyping();
+
+try{
+
+let response=await fetch(
+`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${API_KEY}`,
+{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify({
+contents:[{
+parts:[{
+text:`Reply professionally in Hindi, Marathi or English. User: ${message}`
+}]
+}]
+})
+}
+);
+
+
+let data=await response.json();
+
+removeTyping();
+
+let reply=data.candidates?.[0]?.content?.parts?.[0]?.text || "Server Error.";
+
+addMessage(reply,"bot");
+
+}catch(e){
+
+removeTyping();
+
+addMessage("Network Error. Try again.","bot");
+
+}
+
+}
+
+
+
+// Collect User
+function collectUser(){
+
+userData.customerId=generateCustomerID();
+
+userData.name=prompt("Enter Name:");
+
+userData.email=prompt("Enter Email:");
+
+userData.phone=prompt("Enter Mobile:");
+
+userData.message=prompt("Enter message:");
+
+
+if(userData.name && userData.email && userData.phone && userData.message){
+
+userCaptured=true;
+
+addMessage("Thank You "+userData.name+" 🙏","bot");
+
+addMessage("🆔 Customer ID: "+userData.customerId,"bot");
+
+addMessage(
+"🏢 GOPSHILA ENTERPRISES\n👤 PRIYANSHU KAMBLE\n📞 9130344312\n📧 gopshilaenterprises@gmail.com",
+"bot"
+);
+
+
+saveToSheet();
+
+sendEmailNotification();
+
+}
+
+}
+
+
+
+// Save to Google Sheet
+function saveToSheet(){
+
+fetch(SHEET_API,{
+method:"POST",
+body:JSON.stringify(userData)
+});
+
+}
+
+
+
+// Voice
+function startVoice(){
+
+let recognition=new(window.SpeechRecognition || window.webkitSpeechRecognition)();
+
+recognition.lang="en-IN";
+
+recognition.start();
+
+recognition.onresult=function(e){
+
+document.getElementById("input").value=e.results[0][0].transcript;
+
+sendMessage();
+
+};
+
+}
+
+
+
+// Enter Key
+document.getElementById("input").addEventListener("keypress",function(e){
+
+if(e.key==="Enter")sendMessage();
+
+});
+
+
+
+
+// Email
+function sendEmailNotification(){
+
+emailjs.send("service_y34po6m","template_s4lxpz9",{
+
+customerId:userData.customerId,
+name:userData.name,
+email:userData.email,
+phone:userData.phone,
+message:userData.message
+
+});
+
+}
+
+</script>
+
+
+
+    
 
     <script>
       (function () {
