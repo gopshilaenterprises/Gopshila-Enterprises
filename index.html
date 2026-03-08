@@ -1881,7 +1881,7 @@ addMessage("Network Error. Try again.","bot");
 // Collect User
 function collectUser(){
 
-userData.customerId=generateCustomerID();
+userData.customer_Id=generateCustomerID();
 
 userData.name=prompt("Enter Name:");
 
@@ -1898,7 +1898,7 @@ userCaptured=true;
 
 addMessage("Thank You "+userData.name+" 🙏","bot");
 
-addMessage("🆔 Customer ID: "+userData.customerId,"bot");
+addMessage("🆔 Customer ID: "+userData.customer_Id,"bot");
 
 addMessage(
 "🏢 GOPSHILA ENTERPRISES\n👤 PRIYANSHU KAMBLE\n📞 9130344312\n📧 gopshilaenterprises@gmail.com",
@@ -1964,7 +1964,7 @@ function sendEmailNotification(){
 
 emailjs.send("service_y34po6m","template_s4lxpz9",{
 
-customerId:userData.customerId,
+customerId:userData.customer_Id,
 name:userData.name,
 email:userData.email,
 phone:userData.phone,
