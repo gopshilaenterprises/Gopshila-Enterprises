@@ -2223,51 +2223,68 @@
         setInterval(updateDateTime, 1000);
       });
 
-      async function handleContactSubmit(e) {
-        e.preventDefault();
 
-        const name = document.getElementById("form-name").value;
-        const email = document.getElementById("form-email").value;
-        const phone = document.getElementById("form-phone").value;
-        const message = document.getElementById("form-message").value;
+      //  mail js
 
-        // EMAIL SEND (EmailJS)
-        emailjs
-          .send("service_y34po6m", "template_s4lxpz9", {
-            name: name,
-            email: email,
-            phone: phone,
-            message: message,
-          })
-          .then(
-            function (response) {
-              // GOOGLE SHEET (Excel Save)
-              fetch(
-                "https://script.google.com/macros/s/AKfycbzI6BzXqdMJm6_9EllSojaKDtHj1IDwNMC39YlK0OFdToCDU7Ft-J50cJQOAp3KgJ42/exec",
-                {
-                  method: "POST",
-                  body: JSON.stringify({
-                    name: name,
-                    email: email,
-                    phone: phone,
-                    message: message,
-                  }),
-                },
-              );
+      
+     async function handleContactSubmit(e) {
+  e.preventDefault();
 
-              document.getElementById("contact-form").reset();
-              showNotification(
-                "✓ Message Sent!",
-                `Thank you ${name}, we will contact you soon!`,
-                "success",
-              );
-            },
-            function (error) {
-              showNotification("Error", "Email not sent", "error");
-            },
-          );
+  const name = document.getElementById("form-name").value;
+  const email = document.getElementById("form-email").value;
+  const phone = document.getElementById("form-phone").value;
+  const message = document.getElementById("form-message").value;
+
+  // UNIQUE CUSTOMER ID GENERATE
+  const customerId = "CUS" + Math.floor(1000 + Math.random() * 9000);
+
+  // EMAIL SEND (EmailJS)
+  emailjs
+    .send("service_y34po6m", "template_s4lxpz9", {
+      name: name,
+      email: email,
+      phone: phone,
+      message: message,
+      customer_id: customerId,
+    })
+    .then(
+      function (response) {
+
+        // GOOGLE SHEET SAVE
+        fetch(
+          "https://script.google.com/macros/s/AKfycbzho3XO3HHf2o2APBYsDuHVnGKwD_gA7wURyLL3R4G7OwyiY-ts850wctL2EvGgnvSS/exec",
+          {
+            method: "POST",
+            body: JSON.stringify({
+              customer_id: customerId,
+              name: name,
+              email: email,
+              phone: phone,
+              message: message,
+            }),
+          }
+        );
+
+        document.getElementById("contact-form").reset();
+
+        showNotification(
+          "✓ Message Sent!",
+          `Thank you ${name}. Your ID: ${customerId}`,
+          "success"
+        );
+      },
+
+      function (error) {
+        showNotification("Error", "Email not sent", "error");
       }
+    );
+}
 
+
+
+
+
+      
       async function handleRegistration(e) {
         e.preventDefault();
 
